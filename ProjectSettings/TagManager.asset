@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - pauseScreen
+  - witchOW
+  - fighterOW
+  - tankOW
+  - enemy1
+  - BattleSystem
+  - spawn
+  - Box
+  - player0
+  - player1
+  - player2
+  - enemy0
+  - enemy2
   layers:
   - Default
   - TransparentFX
