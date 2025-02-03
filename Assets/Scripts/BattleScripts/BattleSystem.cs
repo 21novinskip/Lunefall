@@ -46,7 +46,7 @@ public class BattleSystem : MonoBehaviour
     public GameObject missAnimator;
     public Animator CAManimator;
     //delete this later
-    public bool special_attack = false;
+    
 
 [Header("Please dont touch (probably ok if you touch it tho)")]
     public BattleState state;
@@ -72,7 +72,14 @@ public class BattleSystem : MonoBehaviour
 
     public GameObject levelUpScreen;
 
+[Header("Cameras")]
+    public GameObject MainCam;
+    public GameObject ActionCam;
+
+[Header("Miscellaneous")]
     public bool CombatUpdates = false;
+    public bool special_attack = false;
+
     void Start()
     {
         CAManimator = Camera.main.GetComponent<Animator>();
@@ -360,17 +367,22 @@ public class BattleSystem : MonoBehaviour
                 activeUnit.currentAP -= 3;
                 if (special_attack == true)
                 {
+                    MainCam.SetActive(false);
+                    ActionCam.SetActive(true);
                     activeAnimator.SetBool("isSpecial", true);
                     //CAManimator.SetTrigger("WS1");
                     special_attack = false;
                 }
                 activeAnimator.SetTrigger("TryHeavy");
+                activeAnimator.SetBool("isSpecial", false);
                 yield return null; // Waits one frame to ensure the animation state updates
                 combo += ("H"); //Adds this to our combo, relevant for later in the deal damage part.
                 activeUnit.snd_Heavy.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
                 yield return new WaitForSeconds(animationLength);
+                ActionCam.SetActive(false);
+                MainCam.SetActive(true);
                 DealDamage(6);
                 break;
             }
@@ -380,17 +392,22 @@ public class BattleSystem : MonoBehaviour
                 activeUnit.currentAP -= 2;
                 if (special_attack == true)
                 {
+                    MainCam.SetActive(false);
+                    ActionCam.SetActive(true);
                     activeAnimator.SetBool("isSpecial", true);
                     //CAManimator.SetTrigger("WS1");
                     special_attack = false;
                 }
                 activeAnimator.SetTrigger("TryMedium");
+                activeAnimator.SetBool("isSpecial", false);
                 yield return null; // Waits one frame to ensure the animation state updates
                 combo += ("M");//Adds this to our combo, relevant for later in the deal damage part.
                 activeUnit.snd_Medium.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
                 yield return new WaitForSeconds(animationLength);
+                ActionCam.SetActive(false);
+                MainCam.SetActive(true);
                 DealDamage(4);
                 break;
             }
@@ -400,17 +417,22 @@ public class BattleSystem : MonoBehaviour
                 activeUnit.currentAP -= 1;
                 if (special_attack == true)
                 {
+                    MainCam.SetActive(false);
+                    ActionCam.SetActive(true);
                     activeAnimator.SetBool("isSpecial", true);
                     //CAManimator.SetTrigger("WS1");
                     special_attack = false;
                 }
                 activeAnimator.SetTrigger("TryLight");
+                activeAnimator.SetBool("isSpecial", false);
                 yield return null; // Waits one frame to ensure the animation state updates
                 activeUnit.snd_Light.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 combo += ("L");//Adds this to our combo, relevant for later in the deal damage part.
                 float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
                 yield return new WaitForSeconds(animationLength);
+                ActionCam.SetActive(false);
+                MainCam.SetActive(true);
                 DealDamage(2);
                 break;
             }
