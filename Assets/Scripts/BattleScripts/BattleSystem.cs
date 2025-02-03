@@ -71,6 +71,8 @@ public class BattleSystem : MonoBehaviour
     public Slider p2DefenseSlider;
 
     public GameObject levelUpScreen;
+
+    public bool CombatUpdates = false;
     void Start()
     {
         CAManimator = Camera.main.GetComponent<Animator>();
@@ -107,7 +109,7 @@ public class BattleSystem : MonoBehaviour
             {
                 apInd.icons[a].SetActive(true);
             }
-            Debug.Log(playerUnit[i].unitName + " spawned as " + playerPrefab[i].name + "!");
+            if (CombatUpdates) {Debug.Log(playerUnit[i].unitName + " spawned as " + playerPrefab[i].name + "!");}
         }
         checkHP();
     //Spawns enemy Characters
@@ -146,7 +148,7 @@ public class BattleSystem : MonoBehaviour
                 enemyUnit[i].name = "enemyUnit" + (i);
                 newEnemy[i].name = "Enemy_" + (i);
                 newEnemy[i].tag = "enemy" + (i);
-                Debug.Log(enemyUnit[i].unitName + " spawned as " + enemyPrefab[i].name + "!");
+                if (CombatUpdates) {Debug.Log(enemyUnit[i].unitName + " spawned as " + enemyPrefab[i].name + "!");}
             }
         }
     //since all of our setup is done, we can move into the battle.
@@ -158,14 +160,14 @@ public class BattleSystem : MonoBehaviour
     {
         targetUnit = enemyUnit[0]; //defaults to targeting the only enemy we have
         state = BattleState.PLAYERPHASE; //changes the battlestate, which is relevant for getting inputs.
-        Debug.Log("Starting Player Phase.");
+        if (CombatUpdates) {Debug.Log("Starting Player Phase.");}
         turnAnim.SetTrigger("PlayerTurn");
         //This for statement resets the spent AP icons for any alive players
         for (int i = 0; i < playerPrefab.Length; i++)
         {
             if (playerUnit[i].isDead == false)
             {
-                Debug.Log("Reseting " + playerUnit[i].unitName + "'s AP.");
+                if (CombatUpdates) {Debug.Log("Reseting " + playerUnit[i].unitName + "'s AP.");}
                 playerUnit[i].currentAP = playerUnit[i].maxAP;
                 Animator[] APanimators = apIndicator[i].GetComponentsInChildren<Animator>();
                 foreach (Animator anim in APanimators)
@@ -179,7 +181,7 @@ public class BattleSystem : MonoBehaviour
             }
             else
             {
-                Debug.Log(playerUnit[i].unitName + "is dead.");
+                if (CombatUpdates) {Debug.Log(playerUnit[i].unitName + "is dead.");}
             }
             yield return null;
         }
@@ -191,7 +193,7 @@ public class BattleSystem : MonoBehaviour
 //Related to PC1's turn
     IEnumerator PlayerTurn1()
     {
-        Debug.Log("Player Turn 1 Started.");
+        if (CombatUpdates) {Debug.Log("Player Turn 1 Started.");}
         //This all stuff that is for only the active player
         state = BattleState.PLAYERTURN1;
         activeUnit = playerUnit[0];
@@ -219,7 +221,7 @@ public class BattleSystem : MonoBehaviour
 //Related to PC2's turn
     IEnumerator PlayerTurn2()
     {
-        Debug.Log("Player Turn 2 Started.");
+        if (CombatUpdates) {Debug.Log("Player Turn 2 Started.");}
         //This all stuff that is for only the active player
         state = BattleState.PLAYERTURN2;
         activeUnit = playerUnit[1];
@@ -246,7 +248,7 @@ public class BattleSystem : MonoBehaviour
 //Related to PC3's turn
     IEnumerator PlayerTurn3()
     {
-        Debug.Log("Player Turn 3 Started.");
+        if (CombatUpdates) {Debug.Log("Player Turn 3 Started.");}
         //This all stuff that is for only the active player
         state = BattleState.PLAYERTURN3;
         activeUnit = playerUnit[2];
@@ -275,7 +277,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyPhase()
     {
         wePlaying = false;
-        Debug.Log("Starting Enemy Phase.");
+        if (CombatUpdates) {Debug.Log("Starting Enemy Phase.");}
         state = BattleState.ENEMYPHASE;
         activeIndicator = null;
         turnAnim.SetTrigger("EnemyTurn");
@@ -285,7 +287,7 @@ public class BattleSystem : MonoBehaviour
 //Related to EC3's turn
     IEnumerator EnemyTurn1()
     {
-        Debug.Log("Enemy Turn 1 Started.");
+        if (CombatUpdates) {Debug.Log("Enemy Turn 1 Started.");}
         state = BattleState.ENEMYTURN1;
         activeUnit = enemyUnit[0];
         activeAnimator = enemyAnimator[0];
@@ -330,7 +332,7 @@ public class BattleSystem : MonoBehaviour
     //These two coroutines don't matter right now. Might not ever at this rate.
     IEnumerator EnemyTurn2()
     {
-        Debug.Log("Enemy Turn 1 Started.");
+        if (CombatUpdates) {Debug.Log("Enemy Turn 1 Started.");}
         state = BattleState.ENEMYTURN2;
         activeUnit = enemyUnit[1];
         Next();
@@ -338,7 +340,7 @@ public class BattleSystem : MonoBehaviour
     }
     IEnumerator EnemyTurn3()
     {
-        Debug.Log("Enemy Turn 1 Started.");
+        if (CombatUpdates) {Debug.Log("Enemy Turn 1 Started.");}
         state = BattleState.ENEMYTURN3;
         activeUnit = enemyUnit[2];
         Next();
@@ -348,32 +350,48 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerInput()
     {
         var inputGotten = false; //Sets the player not having input anything.
-        Debug.Log(activeUnit.unitName + "'s AP is currently " + activeUnit.currentAP);
-        Debug.Log("Waiting for " + activeUnit.unitName + "'s input.");
+        if (CombatUpdates) {Debug.Log(activeUnit.unitName + "'s AP is currently " + activeUnit.currentAP);}
+        if (CombatUpdates) {Debug.Log("Waiting for " + activeUnit.unitName + "'s input.");}
         while (inputGotten == false && wePlaying) //Starts a while loop that waits for the player to press something.
         {
             if (Input.GetButtonDown("Fire1") && activeUnit.currentAP >= 3)
             {
                 inputGotten = true;
                 activeUnit.currentAP -= 3;
+                if (special_attack == true)
+                {
+                    activeAnimator.SetBool("isSpecial", true);
+                    //CAManimator.SetTrigger("WS1");
+                    special_attack = false;
+                }
                 activeAnimator.SetTrigger("TryHeavy");
+                yield return null; // Waits one frame to ensure the animation state updates
                 combo += ("H"); //Adds this to our combo, relevant for later in the deal damage part.
                 activeUnit.snd_Heavy.Play();
+                if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
+                float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
+                yield return new WaitForSeconds(animationLength);
                 DealDamage(6);
-                Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");
-                yield return new WaitForSeconds(0.1f); //short rest, then we break
                 break;
             }
             else if (Input.GetButtonDown("Fire2") && activeUnit.currentAP >= 2)
             {
                 inputGotten = true;
                 activeUnit.currentAP -= 2;
+                if (special_attack == true)
+                {
+                    activeAnimator.SetBool("isSpecial", true);
+                    //CAManimator.SetTrigger("WS1");
+                    special_attack = false;
+                }
                 activeAnimator.SetTrigger("TryMedium");
+                yield return null; // Waits one frame to ensure the animation state updates
                 combo += ("M");//Adds this to our combo, relevant for later in the deal damage part.
                 activeUnit.snd_Medium.Play();
+                if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
+                float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
+                yield return new WaitForSeconds(animationLength);
                 DealDamage(4);
-                Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");
-                yield return new WaitForSeconds(0.1f);//short rest, then we break
                 break;
             }
             else if (Input.GetButtonDown("Fire3") && activeUnit.currentAP >= 1)
@@ -383,15 +401,17 @@ public class BattleSystem : MonoBehaviour
                 if (special_attack == true)
                 {
                     activeAnimator.SetBool("isSpecial", true);
-                    CAManimator.SetTrigger("WS1");
+                    //CAManimator.SetTrigger("WS1");
+                    special_attack = false;
                 }
-
                 activeAnimator.SetTrigger("TryLight");
+                yield return null; // Waits one frame to ensure the animation state updates
                 activeUnit.snd_Light.Play();
-                Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");
+                if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 combo += ("L");//Adds this to our combo, relevant for later in the deal damage part.
+                float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
+                yield return new WaitForSeconds(animationLength);
                 DealDamage(2);
-                yield return new WaitForSeconds(0.1f);//short rest, then we break
                 break;
             }
             else if (Input.GetButtonDown("Cancel"))
@@ -439,7 +459,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Everyone player is dead but the battle didn't end. Oh no!");
+                    if (CombatUpdates) {Debug.Log("Everyone player is dead but the battle didn't end. Oh no!");}
                 }
                 break;
             case BattleState.PLAYERTURN1:
@@ -484,7 +504,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Everyone enemy is dead but the battle didn't end. Oh no!");
+                    if (CombatUpdates) {Debug.Log("Everyone enemy is dead but the battle didn't end. Oh no!");}
                 }
                 break;
             case BattleState.ENEMYTURN1:
@@ -522,7 +542,7 @@ public class BattleSystem : MonoBehaviour
         //90 + (attacker Agility - defender Agility)%
         //Minimum of 5%, maximum of 95%
         float HitRate = (Mathf.Clamp(90 + activeUnit.Agility - targetUnit.Agility , 5, 95))*activeUnit.agilityMultiplier;//multiplies by any speed buffs/debufs
-        Debug.Log("Hit Rate is " + HitRate + "%");
+        if (CombatUpdates) {Debug.Log("Hit Rate is " + HitRate + "%");}
         return HitRate;
     }
     float Crit() // detirmines the % chance of an attack critting.
@@ -531,7 +551,7 @@ public class BattleSystem : MonoBehaviour
         //half attacker luck - half defender luck %
         ////Minimum of 5%, maximum of 95%
         float CritRate = (Mathf.Clamp(activeUnit.Luck/2 - targetUnit.Luck/2, 5, 95))*activeUnit.luckMultiplier;//multiplies by any luck buffs/debufs
-        Debug.Log("Crit Rate is " + CritRate + "%");
+        if (CombatUpdates) {Debug.Log("Crit Rate is " + CritRate + "%");}
         return CritRate;
     }
     void DealDamage(int rawDamage)
@@ -569,7 +589,7 @@ public class BattleSystem : MonoBehaviour
             if (isCrit == true)//doubles damage for crits
             {
                 trueDamage *= 2;
-                Debug.Log("Critical Hit!");
+                if (CombatUpdates) {Debug.Log("Critical Hit!");}
                 critAnimator.GetComponent<Animator>().SetTrigger("Crit");
             }
             //Applies and resets.
@@ -581,12 +601,12 @@ public class BattleSystem : MonoBehaviour
             {
                 targetUnit.currentHP -= (int)trueDamage;//applies damage
             }
-            Debug.Log(trueDamage+"Damage Dealt!");
-            Debug.Log("Attack x" + playerUnit[0].attackMultiplier);
+            if (CombatUpdates) {Debug.Log(trueDamage+"Damage Dealt!");}
+            if (CombatUpdates) {Debug.Log("Attack x" + playerUnit[0].attackMultiplier);}
         }
         else//for things that happen if you miss
         {
-            Debug.Log("Attack Missed.");
+            if (CombatUpdates) {Debug.Log("Attack Missed.");}
             missAnimator.GetComponent<Animator>().SetTrigger("Miss");
         }
         activeUnit.rawIncrease = 1.0f; //resets any one-time damage changes
