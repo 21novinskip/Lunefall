@@ -9,13 +9,16 @@ public class InventoryItem
     public Sprite Icon;
     public int MaxStack;
     public GameObject ItemPrefab;
+    [TextArea(3, 10)]
+    public string ItemDescription;
 
-    public InventoryItem(string itemName, Sprite icon, int maxStack, GameObject itemPrefab)
+    public InventoryItem(string itemName, Sprite icon, int maxStack, GameObject itemPrefab, string itemDescription)
     {
         ItemName = itemName;
         Icon = icon;
         MaxStack = maxStack;
         ItemPrefab = itemPrefab;
+        ItemDescription = itemDescription;
     }
 }
 
@@ -93,13 +96,5 @@ public class Inventory : MonoBehaviour
 
         Debug.Log("Item not found in inventory.");
         return false;
-    }
-
-    public void PrintInventory()
-    {
-        foreach (var slot in Slots)
-        {
-            Debug.Log($"Item: {slot.Item.ItemName}, Quantity: {slot.Quantity}");
-        }
     }
 }

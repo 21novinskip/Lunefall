@@ -61,10 +61,10 @@ public class SendToBattle : MonoBehaviour
                 GameManager.Instance.previousScene = thisScene;
                 
                 GameManager.Instance.p1Position = collision.gameObject.GetComponent<Transform>().position;
-                GameManager.Instance.playerInventory = collision.gameObject.GetComponent<PlayerInventory>();
-                GameManager.Instance.player_prefab[0] = collision.gameObject.GetComponent<PlayerStats>().character1Prefab;
-                GameManager.Instance.player_prefab[1] = collision.gameObject.GetComponent<PlayerStats>().character2Prefab;
-                GameManager.Instance.player_prefab[2] = collision.gameObject.GetComponent<PlayerStats>().character3Prefab;
+                //GameManager.Instance.playerInventory = collision.gameObject.GetComponent<PlayerInventory>();
+                //GameManager.Instance.player_prefab[0] = collision.gameObject.GetComponent<PlayerStats>().character1Prefab;
+                //GameManager.Instance.player_prefab[1] = collision.gameObject.GetComponent<PlayerStats>().character2Prefab;
+                //GameManager.Instance.player_prefab[2] = collision.gameObject.GetComponent<PlayerStats>().character3Prefab;
 
                 // Load the battle scene
                 SceneManager.LoadScene("BattleScene");

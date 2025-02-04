@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public int currentEXP;
     public int expToNext;
     [Header("Karlot Stats")]
+    public GameObject karlotBattlePrefab;
     public int p0HP;
     public int p0MaxHP;
     public int p0AP;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     public int p0LCK;
     public int p0DEF;
     [Header("Catalina Stats")]
+    public GameObject catalinaBattlePrefab;
     public int p1HP;
     public int p1MaxHP;
     public int p1AP;
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     public int p1LCK;
     public int p1DEF;
     [Header("Hildegard Stats")]
+    public GameObject hildegardBattlePrefab;
     public int p2HP;
     public int p2MaxHP;
     public int p2AP;
@@ -105,6 +108,7 @@ public class GameManager : MonoBehaviour
                 LastState = GameState;
                 GameState = GAMESTATES.PAUSE;
                 pause_screen.SetActive(true);
+                pause_screen.GetComponent<PauseMenuButtons>().ShowKarlotStats();
             }
             else
             {
