@@ -1772,6 +1772,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
+  - {fileID: 767251309}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &366580903
@@ -3948,11 +3949,11 @@ Transform:
   m_GameObject: {fileID: 767251305}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: -2, z: 0}
+  m_LocalPosition: {x: -4, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 361481162}
   m_LocalEulerAnglesHint: {x: -0.0000025044778, y: -146.81058, z: -8.651108e-13}
 --- !u!1 &774593229
 GameObject:
@@ -8194,6 +8195,9 @@ MonoBehaviour:
   p2LuckSlider: {fileID: 0}
   p2DefenseSlider: {fileID: 0}
   levelUpScreen: {fileID: 0}
+  MainCam: {fileID: 963194225}
+  ActionCam: {fileID: 767251305}
+  CombatUpdates: 0
 --- !u!1 &1852459301
 GameObject:
   m_ObjectHideFlags: 0
@@ -9799,4 +9803,3 @@ SceneRoots:
   - {fileID: 366580905}
   - {fileID: 2019119571}
   - {fileID: 361481162}
-  - {fileID: 767251309}
