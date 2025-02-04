@@ -218,9 +218,9 @@ public class GameManager : MonoBehaviour
         enemy_prefab[0] = null;
         overworldEnemyID = null;
         playerInventory = null;
-        player_prefab[0] = null;
-        player_prefab[1] = null;
-        player_prefab[2] = null;
+        //player_prefab[0] = null;
+        //player_prefab[1] = null;
+        //player_prefab[2] = null;
 
         overworldEnemyKilled = false;
     }
