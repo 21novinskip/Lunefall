@@ -107,10 +107,5 @@ public class FighterCombos : MonoBehaviour
 
         }
     }
-    public IEnumerator InspPopup()
-    {
-        popup1.transform.localScale += scaleChange;
-        yield return new WaitForSeconds(2);
-        popup1.transform.localScale -= scaleChange;
-    }
+
 }
