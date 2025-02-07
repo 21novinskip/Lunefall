@@ -100,7 +100,7 @@ public class BattleSystem : MonoBehaviour
         ApplyStats();
         for (int i = 0; i < playerSpawnCount; i++)
         {
-            faceBallObjects[i].GetComponent<SpriteRenderer>().sprite = playerUnit[i].neutralPortrait;
+            faceBallObjects[i].GetComponent<Image>().sprite = playerUnit[i].neutralPortrait;
     //Assigns animator to variable playerAnimator[0], playerAnimator[1], playerAnimator[2] 
             playerAnimator[i] = newPlayer[i].GetComponentInChildren<Animator>();
             playerHPBar[i].maxValue = playerUnit[i].maxHP;
@@ -209,7 +209,7 @@ public class BattleSystem : MonoBehaviour
         activeMenu = playerMenu[0];
         myFace = faceBallObjects[0];
         //Embiggens the menu
-        scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+        scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
         activeMenu.transform.localScale += scaleChange;
         var poschange = new Vector3(38f, 0f , 0f);
         activeMenu.transform.localPosition += poschange; 
@@ -236,7 +236,7 @@ public class BattleSystem : MonoBehaviour
         activeIndicator = apIndicator[1];
         activeMenu = playerMenu[1];
         //Embiggens the menu
-        scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+        scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
         activeMenu.transform.localScale += scaleChange;
         var poschange = new Vector3(38f, 0f , 0f);
         activeMenu.transform.localPosition += poschange; 
@@ -263,7 +263,7 @@ public class BattleSystem : MonoBehaviour
         activeIndicator = apIndicator[2];
         activeMenu = playerMenu[2];
         //Embiggens the menu
-        scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+        scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
         activeMenu.transform.localScale += scaleChange;
         var poschange = new Vector3(38f, 0f , 0f);
         activeMenu.transform.localPosition += poschange; 
@@ -458,7 +458,7 @@ public class BattleSystem : MonoBehaviour
         activeUnit = null;
         if (activeMenu != null)
         {
-            scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+            scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
             activeMenu.transform.localScale -= scaleChange;
             var poschange = new Vector3(38f, 0f , 0f);
             activeMenu.transform.localPosition -= poschange; 
@@ -666,15 +666,15 @@ public class BattleSystem : MonoBehaviour
                 {
                     //dead faces
                     playerAnimator[i].SetTrigger("Death");
-                    faceBallObjects[i].GetComponent<SpriteRenderer>().sprite = playerUnit[i].deadPortrait;
+                    faceBallObjects[i].GetComponent<Image>().sprite = playerUnit[i].deadPortrait;
                 }
                 playerUnit[i].isDead = true;//a player who isDead is locked out of any actions and is counted towards the check of game over
 
             }
             //puts them back to their default portraits if revived
-            else if (playerUnit[i].currentHP >= 0 && faceBallObjects[i].GetComponent<SpriteRenderer>().sprite == playerUnit[i].deadPortrait)
+            else if (playerUnit[i].currentHP >= 0 && faceBallObjects[i].GetComponent<Image>().sprite == playerUnit[i].deadPortrait)
             {
-                faceBallObjects[i].GetComponent<SpriteRenderer>().sprite = playerUnit[i].neutralPortrait;
+                faceBallObjects[i].GetComponent<Image>().sprite = playerUnit[i].neutralPortrait;
             }
         }   
     //hp checks for enemies.
