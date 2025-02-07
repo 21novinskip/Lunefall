@@ -209,7 +209,7 @@ public class BattleSystem : MonoBehaviour
         activeMenu = playerMenu[0];
         myFace = faceBallObjects[0];
         //Embiggens the menu
-        scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+        scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
         activeMenu.transform.localScale += scaleChange;
         var poschange = new Vector3(38f, 0f , 0f);
         activeMenu.transform.localPosition += poschange; 
@@ -236,7 +236,7 @@ public class BattleSystem : MonoBehaviour
         activeIndicator = apIndicator[1];
         activeMenu = playerMenu[1];
         //Embiggens the menu
-        scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+        scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
         activeMenu.transform.localScale += scaleChange;
         var poschange = new Vector3(38f, 0f , 0f);
         activeMenu.transform.localPosition += poschange; 
@@ -263,7 +263,7 @@ public class BattleSystem : MonoBehaviour
         activeIndicator = apIndicator[2];
         activeMenu = playerMenu[2];
         //Embiggens the menu
-        scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+        scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
         activeMenu.transform.localScale += scaleChange;
         var poschange = new Vector3(38f, 0f , 0f);
         activeMenu.transform.localPosition += poschange; 
@@ -458,7 +458,7 @@ public class BattleSystem : MonoBehaviour
         activeUnit = null;
         if (activeMenu != null)
         {
-            scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+            scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
             activeMenu.transform.localScale -= scaleChange;
             var poschange = new Vector3(38f, 0f , 0f);
             activeMenu.transform.localPosition -= poschange; 
