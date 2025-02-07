@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PauseMenuButtons : MonoBehaviour
 {
@@ -21,6 +23,10 @@ public class PauseMenuButtons : MonoBehaviour
     public Sprite Catalina;
     public Sprite Hildegard;
 
+    public GameObject comboButtonPrefab;
+    public GameObject contentPanel;
+    private List<GameObject> combo_list = new List<GameObject>();
+
     void Start()
     {
         ShowKarlotStats();
@@ -28,10 +34,11 @@ public class PauseMenuButtons : MonoBehaviour
 
     public void ShowKarlotStats()
     {
+        //This is basic stuff that sets up Karlot in the menu
+        var karlot_combos = GameManager.Instance.karlotBattlePrefab.GetComponent<FighterCombos>();
         activePlayer = "p0";
-
+        //Shows his portrait and Stats
         menuPortrait.sprite = Karlot;
-
         strSlider.value = GameManager.Instance.p0STR;
         strText.text = GameManager.Instance.p0STR.ToString();
         agiSlider.value = GameManager.Instance.p0AGI;
@@ -40,9 +47,32 @@ public class PauseMenuButtons : MonoBehaviour
         lckText.text = GameManager.Instance.p0LCK.ToString();
         defSlider.value = GameManager.Instance.p0DEF;
         defText.text = GameManager.Instance.p0DEF.ToString();
+
+        if (combo_list.Count > 0)
+        {
+            foreach (GameObject panel in combo_list)
+            {
+                Destroy(panel);
+            }
+            combo_list.Clear();
+        }
+        for (int i = 0; i < karlot_combos.CombosUI.Count; i++)
+        {
+            if (karlot_combos.CombosUI[i].comboKnown == true)
+            {
+                GameObject newPanel = Instantiate(comboButtonPrefab, contentPanel.transform);
+                combo_list.Add(newPanel);
+
+                var buttext = combo_list[i].GetComponent<UIComboDetails>();
+                buttext.comboNameText.text = karlot_combos.CombosUI[i].comboNameUI;
+                buttext.comboRouteText.text = karlot_combos.CombosUI[i].comboRouteUI;
+                buttext.comboDescriptionText.text = karlot_combos.CombosUI[i].comboDescriptionUI;
+            }
+        }
     }
     public void ShowCatalinaStats()
     {
+        var catalina_combos = GameManager.Instance.catalinaBattlePrefab.GetComponent<MageCombos>();
         activePlayer = "p1";
 
         menuPortrait.sprite = Catalina;
@@ -55,9 +85,32 @@ public class PauseMenuButtons : MonoBehaviour
         lckText.text = GameManager.Instance.p1LCK.ToString();
         defSlider.value = GameManager.Instance.p1DEF;
         defText.text = GameManager.Instance.p1DEF.ToString();
+
+        if (combo_list.Count > 0)
+        {
+            foreach (GameObject panel in combo_list)
+            {
+                Destroy(panel);
+            }
+            combo_list.Clear();
+        }
+        for (int i = 0; i < catalina_combos.CombosUI.Count; i++)
+        {
+            if (catalina_combos.CombosUI[i].comboKnown == true)
+            {
+                GameObject newPanel = Instantiate(comboButtonPrefab, contentPanel.transform);
+                combo_list.Add(newPanel);
+
+                var buttext = combo_list[i].GetComponent<UIComboDetails>();
+                buttext.comboNameText.text = catalina_combos.CombosUI[i].comboNameUI;
+                buttext.comboRouteText.text = catalina_combos.CombosUI[i].comboRouteUI;
+                buttext.comboDescriptionText.text = catalina_combos.CombosUI[i].comboDescriptionUI;
+            }
+        }
     }
     public void ShowHildegardStats()
     {
+        var hildegard_combos = GameManager.Instance.hildegardBattlePrefab.GetComponent<TankCombos>();
         activePlayer = "p2";
 
         menuPortrait.sprite = Hildegard;
@@ -70,8 +123,29 @@ public class PauseMenuButtons : MonoBehaviour
         lckText.text = GameManager.Instance.p2LCK.ToString();
         defSlider.value = GameManager.Instance.p2DEF;
         defText.text = GameManager.Instance.p2DEF.ToString();
-    }
 
+        if (combo_list.Count > 0)
+        {
+            foreach (GameObject panel in combo_list)
+            {
+                Destroy(panel);
+            }
+            combo_list.Clear();
+        }
+        for (int i = 0; i < hildegard_combos.CombosUI.Count; i++)
+        {
+            if (hildegard_combos.CombosUI[i].comboKnown == true)
+            {
+                GameObject newPanel = Instantiate(comboButtonPrefab, contentPanel.transform);
+                combo_list.Add(newPanel);
+
+                var buttext = combo_list[i].GetComponent<UIComboDetails>();
+                buttext.comboNameText.text = hildegard_combos.CombosUI[i].comboNameUI;
+                buttext.comboRouteText.text = hildegard_combos.CombosUI[i].comboRouteUI;
+                buttext.comboDescriptionText.text = hildegard_combos.CombosUI[i].comboDescriptionUI;
+            }
+        }
+    }
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");

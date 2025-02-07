@@ -149,6 +149,7 @@ MonoBehaviour:
   luckGrowth: 20
   defenseGrowth: 75
   unitLevel: 1
+  expOnDeath: 0
   rawIncrease: 1
   attackMultiplier: 1
   attackMaximum: 1.8
@@ -181,6 +182,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea6a1a5e25d2f384fa09d567cdc57203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CombosUI:
+  - comboNameUI: Encore
+    comboRouteUI: Light Light Light
+    comboDescriptionUI: Revives all Knocked Out party members at full HP.
+    comboKnown: 1
+  - comboNameUI: Bulking
+    comboRouteUI: Light Medium
+    comboDescriptionUI: Increases party DEFENSE  by twenty percent.
+    comboKnown: 1
   pMember1: {fileID: 0}
   pMember2: {fileID: 0}
   pMember3: {fileID: 0}

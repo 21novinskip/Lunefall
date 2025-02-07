@@ -3,8 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class KarlotCombos
+{
+    public string comboNameUI;
+    public string comboRouteUI;
+    [TextArea(3, 10)]
+    public string comboDescriptionUI;
+    public bool comboKnown;
+}
+
 public class FighterCombos : MonoBehaviour
 {
+    public List<KarlotCombos> CombosUI = new List<KarlotCombos>();
+    
     public GameObject pMember1;
     public GameObject pMember2;
     public GameObject pMember3;
@@ -107,5 +119,4 @@ public class FighterCombos : MonoBehaviour
 
         }
     }
-
 }

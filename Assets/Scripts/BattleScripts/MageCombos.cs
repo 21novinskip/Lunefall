@@ -3,8 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class CatalinaCombos
+{
+    public string comboNameUI;
+    public string comboRouteUI;
+    [TextArea(3, 10)]
+    public string comboDescriptionUI;
+    public bool comboKnown;
+}
+
 public class MageCombos : MonoBehaviour
 {
+    public List<CatalinaCombos> CombosUI = new List<CatalinaCombos>();
+    
     public GameObject pMember1;
     public GameObject pMember2;
     public GameObject pMember3;
