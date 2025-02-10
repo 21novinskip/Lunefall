@@ -367,14 +367,29 @@ public class BattleSystem : MonoBehaviour
                 activeUnit.currentAP -= 3;
                 if (special_attack == true)
                 {
-                    MainCam.SetActive(false);
-                    ActionCam.SetActive(true);
-                    activeAnimator.SetBool("isSpecial", true);
-                    //CAManimator.SetTrigger("WS1");
+                    MainCam.SetActive(false); //turn off main cam
+                    ActionCam.SetActive(true); //turn on action cam
+
+                    /*
+                    DETERMINE WHAT SPECIAL IT IS, SET THE CORRECT VARIABLES
+                    if(This is Sword Dance)
+                    {
+                        specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
+                        specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
+                    }
+                    if else(this is a different animation)
+                    {
+                        same shit etc.
+                    }
+                    activeAnimator.SetTrigger("specialCharacterAnim");
+                    CAManimator.SetTrigger("specialCamAnim");
                     special_attack = false;
+                    */
                 }
-                activeAnimator.SetTrigger("TryHeavy");
-                activeAnimator.SetBool("isSpecial", false);
+                else
+                {
+                    activeAnimator.SetTrigger("TryHeavy");
+                }
                 yield return null; // Waits one frame to ensure the animation state updates
                 combo += ("H"); //Adds this to our combo, relevant for later in the deal damage part.
                 activeUnit.snd_Heavy.Play();
@@ -392,14 +407,29 @@ public class BattleSystem : MonoBehaviour
                 activeUnit.currentAP -= 2;
                 if (special_attack == true)
                 {
-                    MainCam.SetActive(false);
-                    ActionCam.SetActive(true);
-                    activeAnimator.SetBool("isSpecial", true);
-                    //CAManimator.SetTrigger("WS1");
+                    MainCam.SetActive(false); //turn off main cam
+                    ActionCam.SetActive(true); //turn on action cam
+
+                    /*
+                    DETERMINE WHAT SPECIAL IT IS, SET THE CORRECT VARIABLES
+                    if(This is Sword Dance)
+                    {
+                        specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
+                        specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
+                    }
+                    if else(this is a different animation)
+                    {
+                        same shit etc.
+                    }
+                    activeAnimator.SetTrigger("specialCharacterAnim");
+                    CAManimator.SetTrigger("specialCamAnim");
                     special_attack = false;
+                    */
                 }
-                activeAnimator.SetTrigger("TryMedium");
-                activeAnimator.SetBool("isSpecial", false);
+                else
+                {
+                    activeAnimator.SetTrigger("TryMedium");
+                }
                 yield return null; // Waits one frame to ensure the animation state updates
                 combo += ("M");//Adds this to our combo, relevant for later in the deal damage part.
                 activeUnit.snd_Medium.Play();
@@ -417,14 +447,29 @@ public class BattleSystem : MonoBehaviour
                 activeUnit.currentAP -= 1;
                 if (special_attack == true)
                 {
-                    MainCam.SetActive(false);
-                    ActionCam.SetActive(true);
-                    activeAnimator.SetBool("isSpecial", true);
-                    //CAManimator.SetTrigger("WS1");
+                    MainCam.SetActive(false); //turn off main cam
+                    ActionCam.SetActive(true); //turn on action cam
+
+                    /*
+                    DETERMINE WHAT SPECIAL IT IS, SET THE CORRECT VARIABLES
+                    if(This is Sword Dance)
+                    {
+                        specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
+                        specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
+                    }
+                    if else(this is a different animation)
+                    {
+                        same shit etc.
+                    }
+                    activeAnimator.SetTrigger("specialCharacterAnim");
+                    CAManimator.SetTrigger("specialCamAnim");
                     special_attack = false;
+                    */
                 }
-                activeAnimator.SetTrigger("TryLight");
-                activeAnimator.SetBool("isSpecial", false);
+                else
+                {
+                    activeAnimator.SetTrigger("TryLight");
+                }
                 yield return null; // Waits one frame to ensure the animation state updates
                 activeUnit.snd_Light.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
