@@ -22,7 +22,9 @@ public class PauseMenuButtons : MonoBehaviour
     public Sprite Karlot;
     public Sprite Catalina;
     public Sprite Hildegard;
-
+    public Image gearSlot;
+    public TMP_Text itemName;
+    public TMP_Text gearDescript;
     public GameObject comboButtonPrefab;
     public GameObject contentPanel;
     private List<GameObject> combo_list = new List<GameObject>();
@@ -47,6 +49,19 @@ public class PauseMenuButtons : MonoBehaviour
         lckText.text = GameManager.Instance.p0LCK.ToString();
         defSlider.value = GameManager.Instance.p0DEF;
         defText.text = GameManager.Instance.p0DEF.ToString();
+
+        if (GameManager.Instance.karlotGear != null)
+        {
+            gearSlot.sprite = GameManager.Instance.karlotGear.GetComponent<Gear>().gearIcon;
+            itemName.text = GameManager.Instance.karlotGear.GetComponent<Gear>().gearName;
+            gearDescript.text = GameManager.Instance.karlotGear.GetComponent<Gear>().gearDescription;
+        }
+        else
+        {
+            gearSlot.sprite = null;
+            itemName.text = "NO GEAR";
+            gearDescript.text = "Click on the gear slot to equip gear.";
+        }
 
         if (combo_list.Count > 0)
         {
@@ -86,6 +101,19 @@ public class PauseMenuButtons : MonoBehaviour
         defSlider.value = GameManager.Instance.p1DEF;
         defText.text = GameManager.Instance.p1DEF.ToString();
 
+        if (GameManager.Instance.catalinaGear != null)
+        {
+            gearSlot.sprite = GameManager.Instance.catalinaGear.GetComponent<Gear>().gearIcon;
+            itemName.text = GameManager.Instance.catalinaGear.GetComponent<Gear>().gearName;
+            gearDescript.text = GameManager.Instance.catalinaGear.GetComponent<Gear>().gearDescription;
+        }
+        else
+        {
+            gearSlot.sprite = null;
+            itemName.text = "NO GEAR";
+            gearDescript.text = "Click on the gear slot to equip gear.";
+        }
+
         if (combo_list.Count > 0)
         {
             foreach (GameObject panel in combo_list)
@@ -123,6 +151,19 @@ public class PauseMenuButtons : MonoBehaviour
         lckText.text = GameManager.Instance.p2LCK.ToString();
         defSlider.value = GameManager.Instance.p2DEF;
         defText.text = GameManager.Instance.p2DEF.ToString();
+
+        if (GameManager.Instance.hildegardGear != null)
+        {
+            gearSlot.sprite = GameManager.Instance.hildegardGear.GetComponent<Gear>().gearIcon;
+            itemName.text = GameManager.Instance.hildegardGear.GetComponent<Gear>().gearName;
+            gearDescript.text = GameManager.Instance.hildegardGear.GetComponent<Gear>().gearDescription;
+        }
+        else
+        {
+            gearSlot.sprite = null;
+            itemName.text = "NO GEAR";
+            gearDescript.text = "Click on the gear slot to equip gear.";
+        }
 
         if (combo_list.Count > 0)
         {

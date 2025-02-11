@@ -4,13 +4,12 @@ using UnityEngine;
 
 public enum ActivationCondition{BattleStart, PlayerPhase, BeginMyTurn, EndMyTurn, WhenAttacking, WhenHealing, WhenComboActive, WhenAttacked, WhenDefeating, WhenDefeated, EnemyPhase, BattleEnd, None,}
 
-[System.Serializable]
-public class GearDetails
+public class Gear : MonoBehaviour
 {
     [Header("Gear details")]
     public string gearName;
     public Sprite gearIcon;
-    public string geardDescription;
+    public string gearDescription;
     public bool isEquipped;
     [Header("Does the gear change HP?")]
     public bool changesHealth;
@@ -30,12 +29,6 @@ public class GearDetails
     [Header("Passive Effect")]
     public bool givesPassive;
     public ActivationCondition onWhatCondition;
-}
-
-public class Gear : MonoBehaviour
-{
-
-    public GearDetails gearDeatails;
     // Start is called before the first frame update
     void Start()
     {

@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public int p0AGI;
     public int p0LCK;
     public int p0DEF;
+    public GameObject karlotGear;
     [Header("Catalina Stats")]
     public GameObject catalinaBattlePrefab;
     public int p1HP;
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     public int p1AGI;
     public int p1LCK;
     public int p1DEF;
+    public GameObject catalinaGear;
     [Header("Hildegard Stats")]
     public GameObject hildegardBattlePrefab;
     public int p2HP;
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
     public int p2AGI;
     public int p2LCK;
     public int p2DEF;
+    public GameObject hildegardGear;
 
     public GameObject player1Overworld;
     public GameObject player2Overworld;
@@ -62,7 +65,6 @@ public class GameManager : MonoBehaviour
     public Vector3 p1Position = new Vector3(0, 0, 0);
     //Enemy 1:
     public Dictionary<string, bool> enemyStates = new Dictionary<string, bool>();
-    public PlayerInventory playerInventory;
     public GameObject[] player_prefab;
     public GameObject[] enemy_prefab;
     public string overworldEnemyID;
@@ -217,7 +219,7 @@ public class GameManager : MonoBehaviour
         previousScene = null;
         enemy_prefab[0] = null;
         overworldEnemyID = null;
-        playerInventory = null;
+        //playerInventory = null;
         //player_prefab[0] = null;
         //player_prefab[1] = null;
         //player_prefab[2] = null;
