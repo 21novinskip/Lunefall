@@ -9,7 +9,7 @@ public class PauseMenuButtons : MonoBehaviour
 {
     public GameObject settings_window;
     public string activePlayer;
-
+    [Header("Stat Screen")]
     public Slider strSlider;
     public TMP_Text strText;
     public Slider agiSlider;
@@ -18,16 +18,20 @@ public class PauseMenuButtons : MonoBehaviour
     public TMP_Text lckText;
     public Slider defSlider;
     public TMP_Text defText;
+    [Header("Player portraits")]
     public Image menuPortrait;
     public Sprite Karlot;
     public Sprite Catalina;
     public Sprite Hildegard;
-    public Image gearSlot;
-    public TMP_Text itemName;
-    public TMP_Text gearDescript;
+    [Header("Combo Codex")]
     public GameObject comboButtonPrefab;
     public GameObject contentPanel;
     private List<GameObject> combo_list = new List<GameObject>();
+    [Header("Gear Menu bits")]
+    public GameObject gearMenu;
+    public Image gearSlot;
+    public TMP_Text itemName;
+    public TMP_Text gearDescript;
 
     void Start()
     {
@@ -36,6 +40,7 @@ public class PauseMenuButtons : MonoBehaviour
 
     public void ShowKarlotStats()
     {
+        GearCheck();
         //This is basic stuff that sets up Karlot in the menu
         var karlot_combos = GameManager.Instance.karlotBattlePrefab.GetComponent<FighterCombos>();
         activePlayer = "p0";
@@ -87,6 +92,7 @@ public class PauseMenuButtons : MonoBehaviour
     }
     public void ShowCatalinaStats()
     {
+        GearCheck();
         var catalina_combos = GameManager.Instance.catalinaBattlePrefab.GetComponent<MageCombos>();
         activePlayer = "p1";
 
@@ -138,6 +144,7 @@ public class PauseMenuButtons : MonoBehaviour
     }
     public void ShowHildegardStats()
     {
+        GearCheck();
         var hildegard_combos = GameManager.Instance.hildegardBattlePrefab.GetComponent<TankCombos>();
         activePlayer = "p2";
 
@@ -185,6 +192,30 @@ public class PauseMenuButtons : MonoBehaviour
                 buttext.comboRouteText.text = hildegard_combos.CombosUI[i].comboRouteUI;
                 buttext.comboDescriptionText.text = hildegard_combos.CombosUI[i].comboDescriptionUI;
             }
+        }
+    }
+
+    private void GearCheck()
+    {
+        if (gearMenu.GetComponent<GearMenu>().panelState == GearPanelStates.PanelOpen)
+        {
+            gearMenu.GetComponent<GearMenu>().UpdatePanel();
+        }
+        else{}
+    }
+    public void UpdateStatScreen()
+    {
+        switch (activePlayer)
+        {
+            case "p0":
+                ShowKarlotStats();
+                break;
+            case "p1":
+                ShowCatalinaStats();
+                break;
+            case "p2":
+                ShowHildegardStats();
+                break;
         }
     }
     public void GoToMainMenu()

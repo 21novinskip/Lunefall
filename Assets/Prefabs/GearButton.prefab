@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemNameUI: {fileID: 5330197366168942043}
   itemDescriptionUI: {fileID: 7151667987969716005}
-  itemQuantityUI: {fileID: 0}
+  itemQuantityUI: {fileID: 1652000248091609369}
   gearImageUI: {fileID: 554966764636242397}
 --- !u!1 &5923245461372443333
 GameObject:

@@ -38,17 +38,17 @@ public class PlayerInventory : MonoBehaviour
 
     public void RemoveFromInventory(GameObject itemRemoved)
     {
-        foreach(InventorySlot slot in inventorySlots)
+        for (int i = inventorySlots.Count - 1; i >= 0; i--) // Iterate backwards
         {
-            if (slot.gearItemPrefab == itemRemoved)
+            if (inventorySlots[i].gearItemPrefab == itemRemoved)
             {
-                if (slot.gearItemQuantity > 1)
+                if (inventorySlots[i].gearItemQuantity > 1)
                 {
-                    slot.gearItemQuantity -= 1;
+                    inventorySlots[i].gearItemQuantity -= 1;
                 }
                 else
                 {
-                    inventorySlots.Remove(slot);
+                    inventorySlots.RemoveAt(i); // Safe removal
                 }
             }
         }
