@@ -46,6 +46,7 @@ public class MageCombos : MonoBehaviour
     public void Overcharge()
     {
         Debug.Log("Overcharged!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Overcharged";
         pUnit2.rawIncrease = 5.0f;
     
         DialogueManager dm = GameManager.Instance?.GetComponentInChildren<DialogueManager>();
@@ -62,6 +63,7 @@ public class MageCombos : MonoBehaviour
     private void CriticalGlare()
     {
         Debug.Log("Critical Glare!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Critical Glare";
         if (pUnit1.luckMultiplier < pUnit1.luckMaximum)
         {
             pUnit1.luckMultiplier += 0.2f;
@@ -90,6 +92,7 @@ public class MageCombos : MonoBehaviour
         if (mageDictionary.TryGetValue(comboStr, out var ability))
         {
             ability.Invoke(); // Call the method associated with the combo
+            batSys.GetComponent<BattleSystem>().special_attack = true;
         }
         else
         {

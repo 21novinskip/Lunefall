@@ -47,6 +47,7 @@ public class TankCombos : MonoBehaviour
     private void Bulking()
     {
         Debug.Log("Bulking!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Bulking";
         if (pUnit1.defenseMultiplier < pUnit1.defenseMaximum)
         {
             pUnit1.defenseMultiplier += 0.2f;
@@ -73,6 +74,7 @@ public class TankCombos : MonoBehaviour
     private void Encore()
     {
         Debug.Log("Encore!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Envoke";
         if (pUnit1.isDead == true)
         {
             pUnit1.isDead = false;
@@ -105,6 +107,7 @@ public class TankCombos : MonoBehaviour
         if (tankDictionary.TryGetValue(comboStr, out var ability))
         {
             ability.Invoke(); // Call the method associated with the combo
+            batSys.GetComponent<BattleSystem>().special_attack = true;
         }
         else
         {

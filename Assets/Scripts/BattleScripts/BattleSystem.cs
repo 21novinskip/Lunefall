@@ -79,6 +79,7 @@ public class BattleSystem : MonoBehaviour
 [Header("Miscellaneous")]
     public bool CombatUpdates = false;
     public bool special_attack = false;
+    public string currentSpecialAttack = "none";
 
     void Start()
     {
@@ -365,33 +366,18 @@ public class BattleSystem : MonoBehaviour
             {
                 inputGotten = true;
                 activeUnit.currentAP -= 3;
+                combo += ("H"); //Adds this to our combo, relevant for later in the deal damage part.
+                CheckCombo();
                 if (special_attack == true)
                 {
-                    MainCam.SetActive(false); //turn off main cam
-                    ActionCam.SetActive(true); //turn on action cam
-
-                    /*
-                    DETERMINE WHAT SPECIAL IT IS, SET THE CORRECT VARIABLES
-                    if(This is Sword Dance)
-                    {
-                        specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
-                        specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
-                    }
-                    if else(this is a different animation)
-                    {
-                        same shit etc.
-                    }
-                    activeAnimator.SetTrigger("specialCharacterAnim");
-                    CAManimator.SetTrigger("specialCamAnim");
-                    special_attack = false;
-                    */
+                    RunSpecial();
                 }
                 else
                 {
                     activeAnimator.SetTrigger("TryHeavy");
                 }
                 yield return null; // Waits one frame to ensure the animation state updates
-                combo += ("H"); //Adds this to our combo, relevant for later in the deal damage part.
+
                 activeUnit.snd_Heavy.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
@@ -405,33 +391,17 @@ public class BattleSystem : MonoBehaviour
             {
                 inputGotten = true;
                 activeUnit.currentAP -= 2;
+                combo += ("M");//Adds this to our combo, relevant for later in the deal damage part.
+                CheckCombo();
                 if (special_attack == true)
                 {
-                    MainCam.SetActive(false); //turn off main cam
-                    ActionCam.SetActive(true); //turn on action cam
-
-                    /*
-                    DETERMINE WHAT SPECIAL IT IS, SET THE CORRECT VARIABLES
-                    if(This is Sword Dance)
-                    {
-                        specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
-                        specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
-                    }
-                    if else(this is a different animation)
-                    {
-                        same shit etc.
-                    }
-                    activeAnimator.SetTrigger("specialCharacterAnim");
-                    CAManimator.SetTrigger("specialCamAnim");
-                    special_attack = false;
-                    */
+                    RunSpecial();
                 }
                 else
                 {
                     activeAnimator.SetTrigger("TryMedium");
                 }
                 yield return null; // Waits one frame to ensure the animation state updates
-                combo += ("M");//Adds this to our combo, relevant for later in the deal damage part.
                 activeUnit.snd_Medium.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
@@ -445,26 +415,11 @@ public class BattleSystem : MonoBehaviour
             {
                 inputGotten = true;
                 activeUnit.currentAP -= 1;
+                combo += ("L");//Adds this to our combo, relevant for later in the deal damage part.
+                CheckCombo();
                 if (special_attack == true)
                 {
-                    MainCam.SetActive(false); //turn off main cam
-                    ActionCam.SetActive(true); //turn on action cam
-
-                    /*
-                    DETERMINE WHAT SPECIAL IT IS, SET THE CORRECT VARIABLES
-                    if(This is Sword Dance)
-                    {
-                        specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
-                        specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
-                    }
-                    if else(this is a different animation)
-                    {
-                        same shit etc.
-                    }
-                    activeAnimator.SetTrigger("specialCharacterAnim");
-                    CAManimator.SetTrigger("specialCamAnim");
-                    special_attack = false;
-                    */
+                    RunSpecial();
                 }
                 else
                 {
@@ -473,7 +428,6 @@ public class BattleSystem : MonoBehaviour
                 yield return null; // Waits one frame to ensure the animation state updates
                 activeUnit.snd_Light.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
-                combo += ("L");//Adds this to our combo, relevant for later in the deal damage part.
                 float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
                 yield return new WaitForSeconds(animationLength);
                 ActionCam.SetActive(false);
@@ -621,11 +575,9 @@ public class BattleSystem : MonoBehaviour
         if (CombatUpdates) {Debug.Log("Crit Rate is " + CritRate + "%");}
         return CritRate;
     }
-    void DealDamage(int rawDamage)
+
+    void CheckCombo()
     {
-        bool isHit = UnityEngine.Random.Range(0f, 100f) <= Hit(); //check if we hit
-        bool isCrit = UnityEngine.Random.Range(0f, 100f) <= Crit(); //check if we crit
-        //uses the string combo and each player's combo list to check if anything activates
         if (activeUnit.TryGetComponent<FighterCombos>(out FighterCombos fdict))
         {
             fdict.ExecuteCombo(combo);
@@ -638,6 +590,15 @@ public class BattleSystem : MonoBehaviour
         {
             tdict.ExecuteCombo(combo);
         }
+    }
+
+
+    void DealDamage(int rawDamage)
+    {
+        bool isHit = UnityEngine.Random.Range(0f, 100f) <= Hit(); //check if we hit
+        bool isCrit = UnityEngine.Random.Range(0f, 100f) <= Crit(); //check if we crit
+        //uses the string combo and each player's combo list to check if anything activates
+
         if (isHit == true)
         {
             //Damage is calculated. Currently takes:
@@ -825,5 +786,46 @@ public class BattleSystem : MonoBehaviour
         playerUnit[2].Agility = GameManager.Instance.p2AGI;
         playerUnit[2].Luck = GameManager.Instance.p2LCK;
         playerUnit[2].Defense = GameManager.Instance.p2DEF;
+    }
+
+    private void RunSpecial()
+    {
+        MainCam.SetActive(false); //turn off main cam
+        ActionCam.SetActive(true); //turn on action cam
+        
+        if (currentSpecialAttack == "Inspiration")
+        {
+            //specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
+            //specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
+            Debug.Log("INSPIRATION CALLED SUCCESSFULLY");
+        }
+        else if (currentSpecialAttack == "Sword Dance")
+        {
+            //Debug.Log("INSPIRATION CALLED SUCCESSFULLY");
+        }
+        else if (currentSpecialAttack == "Bulking")
+        {
+
+        }
+        else if (currentSpecialAttack == "Encore")
+        {
+
+        }
+        else if (currentSpecialAttack == "Overcharge")
+        {
+
+        }
+        else if (currentSpecialAttack == "Critical Glare")
+        {
+
+        }
+        else if (currentSpecialAttack == "none")
+        {
+            Debug.Log("No special attack assigned");
+        }
+        currentSpecialAttack = "none";
+        activeAnimator.SetTrigger("specialCharacterAnim");
+        CAManimator.SetTrigger("specialCamAnim");
+        special_attack = false;
     }
 }
