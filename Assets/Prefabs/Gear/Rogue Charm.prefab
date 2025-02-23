@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1135108757011963134
+--- !u!1 &8859023256491524493
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4257005313279831067}
-  - component: {fileID: 1803319794601137483}
+  - component: {fileID: 8690821940718764525}
+  - component: {fileID: 2352231056974198367}
   m_Layer: 0
-  m_Name: Agility+5
+  m_Name: Rogue Charm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4257005313279831067
+--- !u!4 &8690821940718764525
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135108757011963134}
+  m_GameObject: {fileID: 8859023256491524493}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 144.89877, y: 130.2014, z: -0.17095584}
@@ -32,30 +32,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1803319794601137483
+--- !u!114 &2352231056974198367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135108757011963134}
+  m_GameObject: {fileID: 8859023256491524493}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d814f25abe4411449d757feafc64b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearName: Agility +5
-  gearIcon: {fileID: 21300000, guid: 9106155456419464a96df5f1b033a308, type: 3}
-  gearDescription: Increases character's AGI by 5 points.
+  gearName: Rogue Charm
+  gearIcon: {fileID: 21300000, guid: 40d3dc9c0e5e3fc4fb8e19afba4d17bf, type: 3}
+  gearDescription: AGI +10,  but LCK -4.
   isEquipped: 0
   changesHealth: 0
   healthChangedBy: 0
   changesStrength: 0
   strengthChangedBy: 0
   changesAgility: 1
-  agilityChangedBy: 5
-  changesLuck: 0
-  luckChangedBy: 0
+  agilityChangedBy: 10
+  changesLuck: 1
+  luckChangedBy: -4
   changesDefense: 0
   denfeseChangedBy: 0
   givesPassive: 0

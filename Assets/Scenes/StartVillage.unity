@@ -1652,14 +1652,14 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 0.25
   m_Viewport: {fileID: 1207824085}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 290430002}
   m_HorizontalScrollbarVisibility: 2
   m_VerticalScrollbarVisibility: 2
   m_HorizontalScrollbarSpacing: -3
-  m_VerticalScrollbarSpacing: -3
+  m_VerticalScrollbarSpacing: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -28882,24 +28882,24 @@ MonoBehaviour:
   p0STR: 5
   p0AGI: 4
   p0LCK: 5
-  p0DEF: 3
+  p0DEF: 4
   karlotGear: {fileID: 0}
   catalinaBattlePrefab: {fileID: 12529876370751371, guid: dfab3256993046246a18a6092c2f8323, type: 3}
   p1HP: 16
   p1MaxHP: 16
   p1AP: 3
   p1STR: 8
-  p1AGI: 3
+  p1AGI: 4
   p1LCK: 5
-  p1DEF: 2
+  p1DEF: 4
   catalinaGear: {fileID: 0}
   hildegardBattlePrefab: {fileID: 6143249510919585055, guid: 0c5c38828b9671341bcca1a09c5c1b0e, type: 3}
   p2HP: 24
   p2MaxHP: 24
   p2AP: 3
   p2STR: 4
-  p2AGI: 2
-  p2LCK: 3
+  p2AGI: 5
+  p2LCK: 4
   p2DEF: 8
   hildegardGear: {fileID: 0}
   player1Overworld: {fileID: 2206990317928761655, guid: ef95f8db41bba4947b924fd80538e431, type: 3}
@@ -28916,6 +28916,9 @@ MonoBehaviour:
   - {fileID: 0}
   overworldEnemyID: 
   overworldEnemyKilled: 0
+  battleMusic: {fileID: 0}
+  startVillageMusic: {fileID: 8300000, guid: df786a0321ddc0c4cab52cb869a988a1, type: 3}
+  forestMusic: {fileID: 8300000, guid: 0ba50c87c71c867458a5bebd26cde81b, type: 3}
   previousScene: 
   previousSceneOW: 
   expTally: 0
@@ -28955,6 +28958,24 @@ MonoBehaviour:
   - gearItemPrefab: {fileID: 7519288003670981283, guid: c4a0ef7094079c548b3160809df76a74, type: 3}
     gearItemQuantity: 1
   - gearItemPrefab: {fileID: 3625190815457299224, guid: 6ddf7ca440a30c94b8a2f615b8904f3d, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 4627013568466214202, guid: c34b2d996f509ec44820b3531897fb32, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 8683518468862475019, guid: d4170b6c05536094a830bb04a029423c, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 8859023256491524493, guid: ad60d5bb1ceac0241b6decc201b9e328, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 5030935489580413599, guid: b325293f2fea3834db88441bbcca851d, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 640914897629090062, guid: f0e256d9f3f9dc840bd2d72ee712cdda, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 3911387784737747871, guid: be994e4388ea5ee4191ee354ee681457, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 488879738874737230, guid: 5a64d876722f8ee438792ce4c5d45b2c, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 1644184507261996372, guid: 604d22d79edf4c04a92369bf08ec819a, type: 3}
+    gearItemQuantity: 1
+  - gearItemPrefab: {fileID: 7827166261752822171, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
     gearItemQuantity: 1
 --- !u!1001 &1259633770
 PrefabInstance:
@@ -29948,7 +29969,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: df786a0321ddc0c4cab52cb869a988a1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -30045,9 +30066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1706775227a2c04fa55021d90639cf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snd_music1: {fileID: 0}
-  snd_music2: {fileID: 0}
-  Situation: 1
+  snd_music1: {fileID: 1655147283}
 --- !u!4 &1655147285
 Transform:
   m_ObjectHideFlags: 0
@@ -46308,6 +46327,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &913167868380688701
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 144.89877
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 130.2014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.17095584
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6393142186930858625, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827166261752822171, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
+      propertyPath: m_Name
+      value: Deus Foot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
 --- !u!114 &923525650377396823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48785,3 +48861,4 @@ SceneRoots:
   - {fileID: 1240468733}
   - {fileID: 1111451416}
   - {fileID: 601329650}
+  - {fileID: 913167868380688701}

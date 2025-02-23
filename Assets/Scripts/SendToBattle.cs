@@ -10,6 +10,8 @@ public class SendToBattle : MonoBehaviour
     public GameObject enemyPFB2;
     public GameObject enemyPFB3;
 
+    public AudioClip battleMusic;
+
     public string uniqueID;
     public string thisScene;
     public bool enemyDefeated = false;
@@ -65,7 +67,7 @@ public class SendToBattle : MonoBehaviour
                 //GameManager.Instance.player_prefab[0] = collision.gameObject.GetComponent<PlayerStats>().character1Prefab;
                 //GameManager.Instance.player_prefab[1] = collision.gameObject.GetComponent<PlayerStats>().character2Prefab;
                 //GameManager.Instance.player_prefab[2] = collision.gameObject.GetComponent<PlayerStats>().character3Prefab;
-
+                GameManager.Instance.battleMusic = battleMusic;
                 // Load the battle scene
                 SceneManager.LoadScene("BattleScene");
             }

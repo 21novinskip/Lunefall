@@ -82,6 +82,7 @@ public class BattleSystem : MonoBehaviour
 
     void Start()
     {
+        
         CAManimator = Camera.main.GetComponent<Animator>();
 
     //Spawns player characters
@@ -139,12 +140,6 @@ public class BattleSystem : MonoBehaviour
                 totalEXP += enemyUnit[i].expOnDeath;
                 enemyHPBar[i] = newEnemy[i].GetComponentInChildren<Slider>();
                 markers[i] = newEnemy[i].GetComponentInChildren<SpriteRenderer>();
-//Boar King audio 
-                if (enemyUnit[0].unitName == "BoarKing")
-                {
-                    AudioManager.GetComponent<MusicManager>().Situation = 2;
-                }
-
             //Assigns animator to variable enemyAnimator[0], enemyAnimator[1], enemyAnimator[2] 
                 enemyAnimator[i] = newEnemy[i].GetComponentInChildren<Animator>();
             //Sets enemy's HP to max and sets up HP Bar

@@ -70,6 +70,13 @@ public class GameManager : MonoBehaviour
     public string overworldEnemyID;
     public bool overworldEnemyKilled;
 
+    [Header("Battlemusic. Don't put anything here.")]
+    public AudioClip battleMusic;
+    [Header("Overworld music. Put stuff here.")]
+    public AudioClip titleMusic;
+    public AudioClip startVillageMusic;
+    public AudioClip forestMusic;
+
     public string previousScene;
     public string previousSceneOW;
     public int expTally;
@@ -225,6 +232,7 @@ public class GameManager : MonoBehaviour
         //player_prefab[2] = null;
 
         overworldEnemyKilled = false;
+        //AudioManager.GetComponent<MusicManager>().Situation = 0;
     }
     public void endBattle()
     {

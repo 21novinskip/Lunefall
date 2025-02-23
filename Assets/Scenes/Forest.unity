@@ -30004,6 +30004,10 @@ PrefabInstance:
       propertyPath: uniqueID
       value: BoarKing-1
       objectReference: {fileID: 0}
+    - target: {fileID: 7247727880203786509, guid: a196085bc237ce048805e6a0bf6b514d, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 2aa51e4f7e2eec84eb333317e3c08230, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30765,6 +30769,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings_window: {fileID: 1513809551}
+  activePlayer: 
+  strSlider: {fileID: 0}
+  strText: {fileID: 0}
+  agiSlider: {fileID: 0}
+  agiText: {fileID: 0}
+  lckSlider: {fileID: 0}
+  lckText: {fileID: 0}
+  defSlider: {fileID: 0}
+  defText: {fileID: 0}
+  menuPortrait: {fileID: 0}
+  Karlot: {fileID: 0}
+  Catalina: {fileID: 0}
+  Hildegard: {fileID: 0}
+  comboButtonPrefab: {fileID: 0}
+  contentPanel: {fileID: 0}
+  gearMenu: {fileID: 0}
+  gearSlot: {fileID: 0}
+  itemName: {fileID: 0}
+  gearDescript: {fileID: 0}
 --- !u!1001 &1109458712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30841,6 +30864,10 @@ PrefabInstance:
       propertyPath: enemyPFB3
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7247727880203786509, guid: 253cb05893f0ab049a309f80e06beaed, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 686dbc371a5fc2e4bb4d010946810b86, type: 3}
     - target: {fileID: 7247727880203786509, guid: 253cb05893f0ab049a309f80e06beaed, type: 3}
       propertyPath: enemyDefeated
       value: 0
@@ -31021,20 +31048,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bfaee230496f07408d08be1797f225b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 100
   pause_screen: {fileID: 1026091812}
   shop_screen: {fileID: 1847699568}
   GameState: 0
   tutorialFinished: 0
   tutorialJUSTFinished: 0
+  partyLevel: 0
+  currentEXP: 0
+  expToNext: 0
+  karlotBattlePrefab: {fileID: 0}
+  p0HP: 0
+  p0MaxHP: 0
+  p0AP: 0
+  p0STR: 0
+  p0AGI: 0
+  p0LCK: 0
+  p0DEF: 0
+  karlotGear: {fileID: 0}
+  catalinaBattlePrefab: {fileID: 0}
   p1HP: 0
+  p1MaxHP: 0
+  p1AP: 0
+  p1STR: 0
+  p1AGI: 0
+  p1LCK: 0
+  p1DEF: 0
+  catalinaGear: {fileID: 0}
+  hildegardBattlePrefab: {fileID: 0}
   p2HP: 0
-  p3HP: 0
+  p2MaxHP: 0
+  p2AP: 0
+  p2STR: 0
+  p2AGI: 0
+  p2LCK: 0
+  p2DEF: 0
+  hildegardGear: {fileID: 0}
   player1Overworld: {fileID: 2206990317928761655, guid: ef95f8db41bba4947b924fd80538e431, type: 3}
   player2Overworld: {fileID: 5020020155050426222, guid: d159b52fef6d11b4da661d7e07d6fad2, type: 3}
   player3Overworld: {fileID: 8211595378303193366, guid: 0d5a3fbc9869c36438ac126141ea9bc7, type: 3}
   p1Position: {x: 0, y: 0, z: 0}
-  playerInventory: {fileID: 0}
   player_prefab:
   - {fileID: 0}
   - {fileID: 0}
@@ -31045,8 +31097,10 @@ MonoBehaviour:
   - {fileID: 0}
   overworldEnemyID: 
   overworldEnemyKilled: 0
+  battleMusic: {fileID: 0}
   previousScene: 
   previousSceneOW: 
+  expTally: 0
 --- !u!4 &1240916088
 Transform:
   m_ObjectHideFlags: 0
@@ -31278,6 +31332,10 @@ PrefabInstance:
       propertyPath: enemyPFB3
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7247727880203786509, guid: 253cb05893f0ab049a309f80e06beaed, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 686dbc371a5fc2e4bb4d010946810b86, type: 3}
     - target: {fileID: 7247727880203786509, guid: 253cb05893f0ab049a309f80e06beaed, type: 3}
       propertyPath: enemyDefeated
       value: 0
@@ -31854,150 +31912,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &1655147282
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1655147285}
-  - component: {fileID: 1655147284}
-  - component: {fileID: 1655147283}
-  m_Layer: 0
-  m_Name: MusicManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1655147283
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655147282}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0ba50c87c71c867458a5bebd26cde81b, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1655147284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655147282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1706775227a2c04fa55021d90639cf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snd_music1: {fileID: 0}
-  snd_music2: {fileID: 0}
-  Situation: 1
---- !u!4 &1655147285
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655147282}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4383116, y: 0.746745, z: -0.030019581}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1658447127
 GameObject:
   m_ObjectHideFlags: 0
@@ -48004,7 +47918,6 @@ SceneRoots:
   - {fileID: 1337330051}
   - {fileID: 753941588}
   - {fileID: 1458254093}
-  - {fileID: 1655147285}
   - {fileID: 1413774753}
   - {fileID: 1109458712}
   - {fileID: 666720639}
