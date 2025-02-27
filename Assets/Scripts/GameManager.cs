@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     public string previousScene;
     public string previousSceneOW;
     public int expTally;
-
+    public SceneTransition scenTr;
     private void Awake()
     {
         
@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GameState = GAMESTATES.ROAM;
+        StartCoroutine(scenTr.EnteringTransition());
         //calls specific setup function based on which scene is loaded
         if (scene.name == "StartVillage")
         {

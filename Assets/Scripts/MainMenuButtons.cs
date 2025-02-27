@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using UnityEngine.UI;
 
 public class MainMenuButtons : MonoBehaviour
@@ -15,8 +16,15 @@ public class MainMenuButtons : MonoBehaviour
     }
     public void GoToGame()
     {
-        SceneManager.LoadScene("cutScene");
+        SceneTransition sceneTransition = GameManager.Instance.GetComponent<GameManager>().scenTr;
+        sceneTransition.meMyVerySelf.SetActive(true);
+        StartCoroutine(sceneTransition.ExitingTransition(() => {
+            // Callback function to load the scene after the transition
+            SceneManager.LoadScene("StartVillage");
+        }));
+        Debug.Log("stinkr");
     }
+    
     public void OpenSettings()
     {
         settings_window.SetActive(true);

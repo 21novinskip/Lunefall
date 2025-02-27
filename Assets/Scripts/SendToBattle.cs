@@ -69,7 +69,12 @@ public class SendToBattle : MonoBehaviour
                 //GameManager.Instance.player_prefab[2] = collision.gameObject.GetComponent<PlayerStats>().character3Prefab;
                 GameManager.Instance.battleMusic = battleMusic;
                 // Load the battle scene
-                SceneManager.LoadScene("BattleScene");
+                SceneTransition sceneTransition = GameManager.Instance.GetComponent<GameManager>().scenTr;
+                sceneTransition.meMyVerySelf.SetActive(true);
+                StartCoroutine(sceneTransition.ExitingTransition(() => {
+                    // Callback function to load the scene after the transition
+                    SceneManager.LoadScene("BattleScene");
+                }));
             }
         }
     }
