@@ -58,6 +58,7 @@ public class FighterCombos : MonoBehaviour
     private void Inspiration()
     {
         Debug.Log("Inspiration!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Inspiration";
         if (pUnit1.attackMultiplier < pUnit1.attackMaximum)
         {
             pUnit1.attackMultiplier += 0.2f;
@@ -84,6 +85,7 @@ public class FighterCombos : MonoBehaviour
     private void SwordDance()
     {
         Debug.Log("Sword Dance!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Sword Dance";
         if (pUnit1.agilityMultiplier < pUnit1.agilityMaximum)
         {
             pUnit1.agilityMultiplier += 0.2f;
@@ -113,6 +115,7 @@ public class FighterCombos : MonoBehaviour
         if (fighterDictionary.TryGetValue(comboStr, out var ability))
         {
             ability.Invoke(); // Call the method associated with the combo
+            batSys.GetComponent<BattleSystem>().special_attack = true;
         }
         else
         {
