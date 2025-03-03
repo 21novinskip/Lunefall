@@ -797,27 +797,28 @@ public class BattleSystem : MonoBehaviour
         {
             //specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
             //specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
-            Debug.Log("INSPIRATION CALLED SUCCESSFULLY");
+            Debug.Log("INSPIRATION!");
         }
         else if (currentSpecialAttack == "Sword Dance")
         {
             //Debug.Log("INSPIRATION CALLED SUCCESSFULLY");
+            Debug.Log("SWORD DANCE!");
         }
         else if (currentSpecialAttack == "Bulking")
         {
-
+            Debug.Log("BULKING!");
         }
         else if (currentSpecialAttack == "Encore")
         {
-
+            Debug.Log("ENCORE!");
         }
         else if (currentSpecialAttack == "Overcharge")
         {
-
+            Debug.Log("OVERCHARGE!");
         }
         else if (currentSpecialAttack == "Critical Glare")
         {
-
+            Debug.Log("CRITICAL GLARE!");
         }
         else if (currentSpecialAttack == "none")
         {
