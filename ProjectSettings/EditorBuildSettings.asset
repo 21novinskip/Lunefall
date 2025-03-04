@@ -11,8 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: a2bc6eb0ebcb04a48b878a608ae89573
-  - enabled: 1
-    path: Assets/Scenes/BattleTutorial.unity
+  - enabled: 0
+    path: Assets/Scenes/BattleTutorial(old).unity
     guid: 2db7ca7dba32c70458490e64e887cd9b
   - enabled: 1
     path: Assets/Scenes/cutScene.unity
@@ -20,11 +20,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: eb6348e1a64d2094d86c25e1f9651d8e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/StartVillage.unity
     guid: 1064ab3f9ffbad947bb321f1ef8cfe7e
+  - enabled: 1
+    path: Assets/Scenes/BattleTutorial.unity
+    guid: 10d1bd0c83b561647aff40bc8176d66a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a36856e2bce001d4c9d52b56779b6036, type: 2}

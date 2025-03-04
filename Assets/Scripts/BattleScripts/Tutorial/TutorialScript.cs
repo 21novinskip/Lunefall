@@ -32,7 +32,7 @@ public class TutorialScript : MonoBehaviour
     public GameObject[] apIndicator;
     public GameObject[] enemyMenu;
     public Slider[] enemyHPBar;
-    public SpriteRenderer[] markers;
+    public Image[] markers;
     private GameObject activeIndicator;
     public GameObject[] faceBallObjects;
     private GameObject myFace;
@@ -69,7 +69,7 @@ public class TutorialScript : MonoBehaviour
             newPlayer[i] = Instantiate(playerPrefab[i], playerSpawnPoint[i].position, playerSpawnPoint[i].rotation);
     //Assigns statsheet to variable playerUnit[0], playerUnit[1], playerUnit[2] 
             playerUnit[i] = newPlayer[i].GetComponent<Unit>();
-            faceBallObjects[i].GetComponent<SpriteRenderer>().sprite = playerUnit[i].neutralPortrait;
+            faceBallObjects[i].GetComponent<Image>().sprite = playerUnit[i].neutralPortrait;
     //Assigns animator to variable playerAnimator[0], playerAnimator[1], playerAnimator[2] 
             playerAnimator[i] = newPlayer[i].GetComponentInChildren<Animator>();
             playerHPBar[i].maxValue = playerUnit[i].maxHP;
@@ -90,7 +90,7 @@ public class TutorialScript : MonoBehaviour
     //Spawns enemy Characters
         int enemySpawnCount = Mathf.Min(enemyPrefab.Length, enemySpawnPoint.Length);
         newEnemy = new GameObject[enemySpawnCount];
-        markers = new SpriteRenderer[enemySpawnCount];
+        markers = new Image[enemySpawnCount];
         enemyAnimator = new Animator[enemySpawnCount];
         for (int i = 0; i < enemySpawnCount; i++)
         {
@@ -98,7 +98,7 @@ public class TutorialScript : MonoBehaviour
             //Assigns statsheet to variable enemyUnit[0], enemyUnit[1], enemyUnit[2]
                 enemyUnit[i] = newEnemy[i].GetComponent<Unit>();
                 enemyHPBar[i] = newEnemy[i].GetComponentInChildren<Slider>();
-                markers[i] = newEnemy[i].GetComponentInChildren<SpriteRenderer>();
+                markers[i] = newEnemy[i].GetComponentInChildren<Image>();
 //Boar King audio 
 
             //Assigns animator to variable enemyAnimator[0], enemyAnimator[1], enemyAnimator[2] 
@@ -139,7 +139,7 @@ public class TutorialScript : MonoBehaviour
 
         targetUnit = enemyUnit[0];
 
-        scaleChange = new Vector3(3.0f, 3.0f, 0.0f);
+        scaleChange = new Vector3(0.16f, 0.16f, 0.0f);
         activeMenu.transform.localScale += scaleChange;
         var poschange = new Vector3(38f, 0f , 0f);
         activeMenu.transform.localPosition += poschange; 
@@ -393,15 +393,15 @@ public class TutorialScript : MonoBehaviour
                 {
                     //dead faces
                     playerAnimator[i].SetTrigger("Death");
-                    faceBallObjects[i].GetComponent<SpriteRenderer>().sprite = playerUnit[i].deadPortrait;
+                    faceBallObjects[i].GetComponent<Image>().sprite = playerUnit[i].deadPortrait;
                 }
                 playerUnit[i].isDead = true;//a player who isDead is locked out of any actions and is counted towards the check of game over
 
             }
             //puts them back to their default portraits if revived
-            else if (playerUnit[i].currentHP >= 0 && faceBallObjects[i].GetComponent<SpriteRenderer>().sprite == playerUnit[i].deadPortrait)
+            else if (playerUnit[i].currentHP >= 0 && faceBallObjects[i].GetComponent<Image>().sprite == playerUnit[i].deadPortrait)
             {
-                faceBallObjects[i].GetComponent<SpriteRenderer>().sprite = playerUnit[i].neutralPortrait;
+                faceBallObjects[i].GetComponent<Image>().sprite = playerUnit[i].neutralPortrait;
             }
         }   
     //hp checks for enemies.
