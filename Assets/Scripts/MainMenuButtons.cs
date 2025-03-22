@@ -16,13 +16,13 @@ public class MainMenuButtons : MonoBehaviour
     }
     public void GoToGame()
     {
-        SceneTransition sceneTransition = GameManager.Instance.GetComponent<GameManager>().scenTr;
-        sceneTransition.meMyVerySelf.SetActive(true);
-        StartCoroutine(sceneTransition.ExitingTransition(() => {
+        //SceneTransition sceneTransition = GameManager.Instance.GetComponent<GameManager>().scenTr;
+        //sceneTransition.meMyVerySelf.SetActive(true);
+        //StartCoroutine(sceneTransition.ExitingTransition(() => {
             // Callback function to load the scene after the transition
             SceneManager.LoadScene("StartVillage");
-        }));
-        Debug.Log("stinkr");
+        //}));
+        //Debug.Log("stinkr");
     }
     
     public void OpenSettings()

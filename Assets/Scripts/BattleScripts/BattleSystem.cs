@@ -20,7 +20,7 @@ public class BattleSystem : MonoBehaviour
     public Unit[] playerUnit;
     public Unit[] enemyUnit;
     private Unit activeUnit;
-    private Unit targetUnit;
+    public Unit targetUnit;
 [Header("Points the characters will spawn. Always have 3 in the playerSpawnPoint.")]
     public Transform[] playerSpawnPoint;
     public Transform[] enemySpawnPoint;
@@ -52,7 +52,7 @@ public class BattleSystem : MonoBehaviour
     public BattleState state;
     public BattleState lastState;
     private bool wePlaying = false;
-    private String combo;
+    public String combo;
     public int totalEXP;
 [Header("EndScreen")]
     public Slider p0StrengthSlider;
@@ -80,6 +80,8 @@ public class BattleSystem : MonoBehaviour
     public bool CombatUpdates = false;
     public bool special_attack = false;
     public string currentSpecialAttack = "none";
+    public bool hasHitCalcd = false;
+    public bool isHit;
 
     void Start()
     {
@@ -139,6 +141,7 @@ public class BattleSystem : MonoBehaviour
             //Assigns statsheet to variable enemyUnit[0], enemyUnit[1], enemyUnit[2]
                 enemyUnit[i] = newEnemy[i].GetComponent<Unit>();
                 totalEXP += enemyUnit[i].expOnDeath;
+                enemyMenu[i] = newEnemy[i].transform.Find("EnemyCanvas")?.gameObject;
                 enemyHPBar[i] = newEnemy[i].GetComponentInChildren<Slider>();
                 markers[i] = newEnemy[i].GetComponentInChildren<SpriteRenderer>();
             //Assigns animator to variable enemyAnimator[0], enemyAnimator[1], enemyAnimator[2] 
@@ -558,7 +561,7 @@ public class BattleSystem : MonoBehaviour
         //90 + (attacker Agility - defender Agility)%
         //Minimum of 5%, maximum of 95%
         float HitRate = (Mathf.Clamp(90 + activeUnit.Agility - targetUnit.Agility , 5, 95))*activeUnit.agilityMultiplier;//multiplies by any speed buffs/debufs
-        if (CombatUpdates) {Debug.Log("Hit Rate is " + HitRate + "%");}
+        Debug.Log("Hit Rate is " + HitRate + "%");
         return HitRate;
     }
     float Crit() // detirmines the % chance of an attack critting.
@@ -590,7 +593,11 @@ public class BattleSystem : MonoBehaviour
 
     void DealDamage(int rawDamage)
     {
-        bool isHit = UnityEngine.Random.Range(0f, 100f) <= Hit(); //check if we hit
+        hasHitCalcd = false;
+
+        isHit = UnityEngine.Random.Range(0f, 100f) <= Hit(); //check if we hit
+        hasHitCalcd = true;
+        Debug.Log("Hit Has been calculated");
         bool isCrit = UnityEngine.Random.Range(0f, 100f) <= Crit(); //check if we crit
         //uses the string combo and each player's combo list to check if anything activates
 
@@ -642,9 +649,11 @@ public class BattleSystem : MonoBehaviour
         {
 
         }
+        hasHitCalcd = false;
+        isHit = false;
     }
 
-    IEnumerator ChangeIcon()
+    public IEnumerator ChangeIcon()
     {
         for (int i = 0; i < activeIndicator.GetComponent<APIndicator>().icons.Length; i++)
         {
@@ -714,21 +723,25 @@ public class BattleSystem : MonoBehaviour
                     playerMenu[0].GetComponent<menu>().atkIcon.GetComponent<Animator>().SetTrigger(playerUnit[0].attackMultiplier.ToString());
                     playerMenu[1].GetComponent<menu>().atkIcon.GetComponent<Animator>().SetTrigger(playerUnit[1].attackMultiplier.ToString());
                     playerMenu[2].GetComponent<menu>().atkIcon.GetComponent<Animator>().SetTrigger(playerUnit[2].attackMultiplier.ToString());
+                    enemyMenu[0].GetComponent<menu>().atkIcon.GetComponent<Animator>().SetTrigger(enemyUnit[0].attackMultiplier.ToString());
                     break;
                 case "def":
                     playerMenu[0].GetComponent<menu>().defIcon.GetComponent<Animator>().SetTrigger(playerUnit[0].defenseMultiplier.ToString());
                     playerMenu[1].GetComponent<menu>().defIcon.GetComponent<Animator>().SetTrigger(playerUnit[1].defenseMultiplier.ToString());
                     playerMenu[2].GetComponent<menu>().defIcon.GetComponent<Animator>().SetTrigger(playerUnit[2].defenseMultiplier.ToString());
+                    enemyMenu[0].GetComponent<menu>().defIcon.GetComponent<Animator>().SetTrigger(enemyUnit[0].defenseMultiplier.ToString());
                     break;
                 case "agi":
                     playerMenu[0].GetComponent<menu>().agiIcon.GetComponent<Animator>().SetTrigger(playerUnit[0].agilityMultiplier.ToString());
                     playerMenu[1].GetComponent<menu>().agiIcon.GetComponent<Animator>().SetTrigger(playerUnit[1].agilityMultiplier.ToString());
                     playerMenu[2].GetComponent<menu>().agiIcon.GetComponent<Animator>().SetTrigger(playerUnit[2].agilityMultiplier.ToString());
+                    enemyMenu[0].GetComponent<menu>().agiIcon.GetComponent<Animator>().SetTrigger(enemyUnit[0].agilityMultiplier.ToString());
                     break;
                 case "lck":
                     playerMenu[0].GetComponent<menu>().lckIcon.GetComponent<Animator>().SetTrigger(playerUnit[0].luckMultiplier.ToString());
                     playerMenu[1].GetComponent<menu>().lckIcon.GetComponent<Animator>().SetTrigger(playerUnit[1].luckMultiplier.ToString());
                     playerMenu[2].GetComponent<menu>().lckIcon.GetComponent<Animator>().SetTrigger(playerUnit[2].luckMultiplier.ToString());
+                    enemyMenu[0].GetComponent<menu>().lckIcon.GetComponent<Animator>().SetTrigger(enemyUnit[0].luckMultiplier.ToString());
                     break;
                 default:
                     break;

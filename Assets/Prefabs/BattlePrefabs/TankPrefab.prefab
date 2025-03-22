@@ -183,13 +183,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CombosUI:
+  - comboNameUI: Bulking
+    comboRouteUI: Light Medium
+    comboDescriptionUI: Increases party DEFENSE  by twenty percent.
+    comboKnown: 1
   - comboNameUI: Encore
     comboRouteUI: Light Light Light
     comboDescriptionUI: Revives all Knocked Out party members at full HP.
     comboKnown: 1
-  - comboNameUI: Bulking
-    comboRouteUI: Light Medium
-    comboDescriptionUI: Increases party DEFENSE  by twenty percent.
+  - comboNameUI: Punishing Blow
+    comboRouteUI: Medium Light Light
+    comboDescriptionUI: Decrease enemy ATTACK by twenty percent.
+    comboKnown: 1
+  - comboNameUI: Protector of the Meek
+    comboRouteUI: Heavy Medium Light
+    comboDescriptionUI: Increases damage if Karlot and Catalina have low HP.
     comboKnown: 1
   pMember1: {fileID: 0}
   pMember2: {fileID: 0}
@@ -197,6 +205,7 @@ MonoBehaviour:
   pUnit1: {fileID: 0}
   pUnit2: {fileID: 0}
   pUnit3: {fileID: 0}
+  eUnit: {fileID: 0}
   popup1: {fileID: 0}
   batSys: {fileID: 0}
 --- !u!82 &6535897994712203024

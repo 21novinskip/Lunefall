@@ -24,6 +24,7 @@ public class FighterCombos : MonoBehaviour
     public Unit pUnit1;
     public Unit pUnit2;
     public Unit pUnit3;
+    public Unit eUnit;
     
     public GameObject popup1;
     private Vector3 scaleChange;
@@ -43,6 +44,7 @@ public class FighterCombos : MonoBehaviour
         pUnit3 = pMember3.GetComponent<Unit>();
 
         batSys = GameObject.FindWithTag("BattleSystem");
+        eUnit = batSys.GetComponent<BattleSystem>().targetUnit;
         //scaleChange = new Vector3(4.5f, 4.5f, 4.5f);
     }
 
@@ -52,6 +54,8 @@ public class FighterCombos : MonoBehaviour
         {
             { "LM", Inspiration },
             { "LLL", SwordDance },
+            { "MLL", PiercingBlow },
+            { "HML", MoonDefender },
         };
     }
 
@@ -72,15 +76,8 @@ public class FighterCombos : MonoBehaviour
             pUnit3.attackMultiplier += 0.2f;
         }
         batSys.GetComponent<BattleSystem>().ChangeBuff("atk");
-        DialogueManager dm = GameManager.Instance?.GetComponentInChildren<DialogueManager>();
-        if (dm != null)
-        {
-            StartCoroutine(dm.StartBattlePopup(pUnit1.neutralPortrait, "Inspiration!", "Party attack increased!"));
-        }
-        else
-        {
-            Debug.Log("DialogueManager not found on GameManager.");
-        }
+
+        batSys.GetComponent<BattleSystem>().combo = null;
     }
     private void SwordDance()
     {
@@ -99,14 +96,42 @@ public class FighterCombos : MonoBehaviour
             pUnit3.agilityMultiplier += 0.2f;
         }
         batSys.GetComponent<BattleSystem>().ChangeBuff("agi");
-        DialogueManager dm = GameManager.Instance?.GetComponentInChildren<DialogueManager>();
-        if (dm != null)
+
+        batSys.GetComponent<BattleSystem>().combo = null;
+    }
+    private void PiercingBlow()
+    {
+        Debug.Log("Piercing Blow!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Piercing Blow";
+        if (eUnit.defenseMultiplier > eUnit.defenseMinimum)
         {
-            StartCoroutine(dm.StartBattlePopup(pUnit1.neutralPortrait, "Sword Dance!", "Party agility increased!"));
+            eUnit.defenseMultiplier -= 0.2f;
         }
+        batSys.GetComponent<BattleSystem>().ChangeBuff("def");
+
+        batSys.GetComponent<BattleSystem>().combo = null;
+    }
+
+    private void MoonDefender()
+    {
+        var hpcalc = (int)(pUnit1.maxHP * (1f / 4f));
+        Debug.Log("lost" + hpcalc + "hp");
+        if ((pUnit1.currentHP - hpcalc) <= 0)
+        {
+            pUnit1.currentHP = 1;
+        } 
         else
         {
-            Debug.Log("DialogueManager not found on GameManager.");
+            pUnit1.currentHP -= hpcalc;
+            pUnit1.currentAP += 3;
+            Animator[] APanimators = batSys.GetComponent<BattleSystem>().apIndicator[0].GetComponentsInChildren<Animator>();
+            foreach (Animator anim in APanimators)
+            {
+                if (anim != null && anim.gameObject.activeInHierarchy)
+                {
+                    anim.SetTrigger("IconReset");
+                }
+            }
         }
     }
 

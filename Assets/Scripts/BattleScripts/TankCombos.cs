@@ -24,6 +24,7 @@ public class TankCombos : MonoBehaviour
     public Unit pUnit1;
     public Unit pUnit2;
     public Unit pUnit3;
+    public Unit eUnit;
 
     public GameObject popup1;
     private Vector3 scaleChange;
@@ -43,7 +44,7 @@ public class TankCombos : MonoBehaviour
         pUnit3 = pMember3.GetComponent<Unit>();
 
         batSys = GameObject.FindWithTag("BattleSystem");
-
+        eUnit = batSys.GetComponent<BattleSystem>().targetUnit;
         //scaleChange = new Vector3(4.5f, 4.5f, 4.5f);
     }
 
@@ -52,7 +53,9 @@ public class TankCombos : MonoBehaviour
         tankDictionary = new Dictionary<string, Action>
         {
             { "LM", Bulking },
-            {"LLL", Encore},
+            { "LLL", Encore },
+            { "MLL", PunishingBlow },
+            { "HML", Protector },
         };
     }
 
@@ -73,15 +76,7 @@ public class TankCombos : MonoBehaviour
             pUnit3.defenseMultiplier += 0.2f;
         }
         batSys.GetComponent<BattleSystem>().ChangeBuff("def");
-        DialogueManager dm = GameManager.Instance?.GetComponentInChildren<DialogueManager>();
-        if (dm != null)
-        {
-            StartCoroutine(dm.StartBattlePopup(pUnit3.neutralPortrait, "Bulking!", "Party defense increased!"));
-        }
-        else
-        {
-            Debug.Log("DialogueManager not found on GameManager.");
-        }
+        batSys.GetComponent<BattleSystem>().combo = null;
     }
     private void Encore()
     {
@@ -103,15 +98,28 @@ public class TankCombos : MonoBehaviour
             pUnit3.currentHP = pUnit3.maxHP;
         }
         batSys.GetComponent<BattleSystem>().checkHP();
-        DialogueManager dm = GameManager.Instance?.GetComponentInChildren<DialogueManager>();
-        if (dm != null && ( pUnit1.isDead == true || pUnit2.isDead == true ))
+        batSys.GetComponent<BattleSystem>().combo = null;
+    }
+    private void PunishingBlow()
+    {
+        Debug.Log("Punishing Blow!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Punishing Blow";
+        if (eUnit.attackMultiplier > eUnit.attackMinimum)
         {
-            StartCoroutine(dm.StartBattlePopup(pUnit3.neutralPortrait, "Enore!", "Revived dead party members!"));
+            eUnit.attackMultiplier -= 0.2f;
         }
-        else
-        {
-            StartCoroutine(dm.StartBattlePopup(pUnit3.neutralPortrait, "Enore!", "No one to revive!"));
-        }
+        batSys.GetComponent<BattleSystem>().ChangeBuff("atk");
+
+        batSys.GetComponent<BattleSystem>().combo = null;
+    }
+    private void Protector()
+    {
+        Debug.Log("Protector of the Meek!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Protector";
+        var protectr = ((5 - (pUnit1.currentHP / pUnit1.maxHP)) + (5 - (pUnit2.currentHP / pUnit2.maxHP)));
+        pUnit3.rawIncrease = protectr;
+
+        batSys.GetComponent<BattleSystem>().combo = null;
     }
 
     public void ExecuteCombo(string comboStr)

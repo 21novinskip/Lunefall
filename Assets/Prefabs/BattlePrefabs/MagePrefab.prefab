@@ -100,11 +100,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CombosUI:
   - comboNameUI: Critical Glare
-    comboRouteUI: Light Light Light
+    comboRouteUI: Light Medium
     comboDescriptionUI: Increases party LUCK by twenty percent.
     comboKnown: 1
+  - comboNameUI: Stagnant Blow
+    comboRouteUI: Light Light Light
+    comboDescriptionUI: Decrease enemy AGILITY by twenty percent.
+    comboKnown: 1
+  - comboNameUI: Tragic Blow
+    comboRouteUI: Medium Light Light
+    comboDescriptionUI: Decrease enemy LUCK by twenty percent.
+    comboKnown: 1
   - comboNameUI: Overcharge
-    comboRouteUI: Light Medium
+    comboRouteUI: Heavy Medium Light
     comboDescriptionUI: Significantly increases power of the current attack
     comboKnown: 1
   pMember1: {fileID: 0}
@@ -113,6 +121,7 @@ MonoBehaviour:
   pUnit1: {fileID: 0}
   pUnit2: {fileID: 0}
   pUnit3: {fileID: 0}
+  eUnit: {fileID: 0}
   popup1: {fileID: 0}
   batSys: {fileID: 0}
 --- !u!82 &2956835805150697024

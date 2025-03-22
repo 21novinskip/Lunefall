@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GameState = GAMESTATES.ROAM;
-        StartCoroutine(scenTr.EnteringTransition());
+        //StartCoroutine(scenTr.EnteringTransition());
         //calls specific setup function based on which scene is loaded
         if (scene.name == "StartVillage")
         {
