@@ -14110,7 +14110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c3275b9756c3c7489c158362c9d643b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14598,6 +14598,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a8eed4805eea97849819f69c247dee06, type: 3}
       propertyPath: m_Name
       value: BattleScene2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a8eed4805eea97849819f69c247dee06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

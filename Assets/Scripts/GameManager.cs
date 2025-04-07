@@ -158,9 +158,9 @@ public class GameManager : MonoBehaviour
         //this is where we set the "default spawn location" of players in a scene. 
         else if (p1Position == new Vector3(0, 0, 0))
         {
-            Instantiate(player1Overworld, new Vector3(-14,7.5f,0), Quaternion.identity);//change these vector3 numbers to change spawnpoints
-            Instantiate(player2Overworld, new Vector3(-18,7.5f,0), Quaternion.identity);
-            Instantiate(player3Overworld, new Vector3(-16,7.5f,0), Quaternion.identity);
+            Instantiate(player1Overworld, new Vector3(-14,9f,0), Quaternion.identity);//change these vector3 numbers to change spawnpoints
+            Instantiate(player2Overworld, new Vector3(-18,9f,0), Quaternion.identity);
+            Instantiate(player3Overworld, new Vector3(-16,9f,0), Quaternion.identity);
         }
         //Spawns p1 at the same spot as they were before battle, p2 & p3 nearby
         else
