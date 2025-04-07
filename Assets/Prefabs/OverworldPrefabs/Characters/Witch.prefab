@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 2630601050146691446}
   - component: {fileID: 4841070138827388853}
   - component: {fileID: 5694919165675668144}
-  - component: {fileID: 5930680019560768749}
   - component: {fileID: 5638340109744594689}
   - component: {fileID: 6412378793948108096}
   - component: {fileID: 6658772416396700117}
@@ -284,27 +283,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5930680019560768749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2206990317928761655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f566302d33bf15d41823f1143ddd8637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentMoney: 100
-  slot1Item: {fileID: 0}
-  slot1Name: 
-  slot1Price: 0
-  slot1Quantity: 0
-  slot2Item: {fileID: 0}
-  slot2Name: 
-  slot2Price: 0
-  slot2Quantity: 0
 --- !u!114 &5638340109744594689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,6 +456,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1792774}
+  m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
-  m_Radius: 0.25572863
+  m_Radius: 0.3
