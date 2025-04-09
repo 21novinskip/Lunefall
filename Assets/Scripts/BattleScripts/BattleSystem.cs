@@ -809,8 +809,9 @@ public class BattleSystem : MonoBehaviour
         }
         else if (currentSpecialAttack == "Sword Dance")
         {
-            //Debug.Log("INSPIRATION CALLED SUCCESSFULLY");
             Debug.Log("SWORD DANCE!");
+            activeAnimator.SetTrigger("Sword Dance");
+            CAManimator.SetTrigger("Sword Dance Cam");
         }
         else if (currentSpecialAttack == "Bulking")
         {
@@ -833,8 +834,8 @@ public class BattleSystem : MonoBehaviour
             Debug.Log("No special attack assigned");
         }
         currentSpecialAttack = "none";
-        activeAnimator.SetTrigger("specialCharacterAnim");
-        CAManimator.SetTrigger("specialCamAnim");
+        //activeAnimator.SetTrigger("specialCharacterAnim");
+        //CAManimator.SetTrigger("specialCamAnim");
         special_attack = false;
     }
 }

@@ -28,4 +28,12 @@ public class VideoManager : MonoBehaviour
         //bnow it is done
         SceneManager.LoadScene("StartVillage");
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            SceneManager.LoadScene("StartVillage");
+        }
+    }
 }
