@@ -227,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5055861028644835720, guid: 279373879139c354caa37962bf28898a, type: 3}
       propertyPath: WhereTo
-      value: MainMenu
+      value: GraveyardMT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -246,6 +246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4403646626176960690, guid: b7c35d269493c4848beecc808a9df579, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 753941589}
     - target: {fileID: 4740151871152949670, guid: b7c35d269493c4848beecc808a9df579, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -32499,7 +32503,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0.5, z: 0}
   m_MaxChunkCount: 16

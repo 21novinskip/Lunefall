@@ -144,6 +144,10 @@ public class GameManager : MonoBehaviour
         {
             StartForestSetup();
         }
+        if (scene.name == "GraveyardMT")
+        {
+            StartGraveyardSetup();
+        }
         //add as many if statements and functions as there are overworld scenes
     }
 
@@ -181,6 +185,25 @@ public class GameManager : MonoBehaviour
     {
         //this is where we set the "default spawn location" of players in a scene. 
         if (previousSceneOW == "StartVillage")
+        {
+            Instantiate(player1Overworld, new Vector3(-18,13.5f,0), Quaternion.identity);//change these vector3 numbers to change spawnpoints
+            Instantiate(player2Overworld, new Vector3(-22,13.5f,0), Quaternion.identity);
+            Instantiate(player3Overworld, new Vector3(-20,13.5f,0), Quaternion.identity);
+        }
+        //Spawns p1 at the same spot as they were before battle, p2 & p3 nearby
+        else
+        {
+            Instantiate(player1Overworld, p1Position, Quaternion.identity);
+            Instantiate(player2Overworld, p1Position - new Vector3(0,0,0), Quaternion.identity);
+            Instantiate(player3Overworld, p1Position - new Vector3(0,0,0), Quaternion.identity);
+        }
+        previousSceneOW = null;//set this back to nothing so it doesn't mess things up.
+    }
+
+    void StartGraveyardSetup()
+    {
+        //this is where we set the "default spawn location" of players in a scene. 
+        if (previousSceneOW == "Forest")
         {
             Instantiate(player1Overworld, new Vector3(-18,13.5f,0), Quaternion.identity);//change these vector3 numbers to change spawnpoints
             Instantiate(player2Overworld, new Vector3(-22,13.5f,0), Quaternion.identity);
