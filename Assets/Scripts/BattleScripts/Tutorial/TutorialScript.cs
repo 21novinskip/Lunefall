@@ -215,7 +215,7 @@ public class TutorialScript : MonoBehaviour
 
         characterName.text = "Catalina";
         characterIcon.sprite = playerUnit[1].neutralPortrait;
-        dialogueArea.text = "Ack, I'm feeling faint! I need to use my Actions and heal with 'M'.";
+        dialogueArea.text = "Ack, I'm feeling faint! I need to use my Actions and heal with 'H'.";
         inputGotten = false;
         while (inputGotten == false) //Starts a while loop that waits for the player to press something.
         {
