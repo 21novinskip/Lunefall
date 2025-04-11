@@ -833,9 +833,9 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("No special attack assigned");
         }
-        currentSpecialAttack = "none";
+        //currentSpecialAttack = "none";
         //activeAnimator.SetTrigger("specialCharacterAnim");
         //CAManimator.SetTrigger("specialCamAnim");
-        special_attack = false;
+        //special_attack = false;
     }
 }
