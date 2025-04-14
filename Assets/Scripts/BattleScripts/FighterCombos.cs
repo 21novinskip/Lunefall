@@ -114,6 +114,8 @@ public class FighterCombos : MonoBehaviour
 
     private void MoonDefender()
     {
+        Debug.Log("Moon Defender!");
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Moon Defender";
         var hpcalc = (int)(pUnit1.maxHP * (1f / 4f));
         Debug.Log("lost" + hpcalc + "hp");
         if ((pUnit1.currentHP - hpcalc) <= 0)
@@ -139,8 +141,8 @@ public class FighterCombos : MonoBehaviour
     {
         if (fighterDictionary.TryGetValue(comboStr, out var ability))
         {
-            ability.Invoke(); // Call the method associated with the combo
             batSys.GetComponent<BattleSystem>().special_attack = true;
+            ability.Invoke(); // Call the method associated with the combo
         }
         else
         {

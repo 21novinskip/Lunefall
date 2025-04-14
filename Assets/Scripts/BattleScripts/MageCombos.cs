@@ -113,8 +113,8 @@ public class MageCombos : MonoBehaviour
     {
         if (mageDictionary.TryGetValue(comboStr, out var ability))
         {
-            ability.Invoke(); // Call the method associated with the combo
             batSys.GetComponent<BattleSystem>().special_attack = true;
+            ability.Invoke(); // Call the method associated with the combo
         }
         else
         {

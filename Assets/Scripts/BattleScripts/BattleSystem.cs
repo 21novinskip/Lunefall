@@ -355,82 +355,110 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerInput()
     {
-        var inputGotten = false; //Sets the player not having input anything.
+        var inputGotten = false; //Sets the player as not having inputted anything.
         if (CombatUpdates) {Debug.Log(activeUnit.unitName + "'s AP is currently " + activeUnit.currentAP);}
         if (CombatUpdates) {Debug.Log("Waiting for " + activeUnit.unitName + "'s input.");}
         while (inputGotten == false && wePlaying) //Starts a while loop that waits for the player to press something.
         {
             if (Input.GetButtonDown("Fire1") && activeUnit.currentAP >= 3)
             {
-                inputGotten = true;
                 activeUnit.currentAP -= 3;
                 combo += ("H"); //Adds this to our combo, relevant for later in the deal damage part.
-                CheckCombo();
+                CheckCombo(); //Sets special_attack to true and currentSpecialAttack to a string of what combo it is. (and runs the actual combat code of course)
                 if (special_attack == true)
                 {
-                    RunSpecial();
+                    yield return StartCoroutine(RunSpecial());
                 }
                 else
                 {
                     activeAnimator.SetTrigger("TryHeavy");
+                    yield return null;
+
+                    while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName("TryHeavy"))
+                    {
+                        yield return null;
+                    }
+
+                    float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
+                    yield return new WaitForSeconds(animationLength);
+
                 }
                 yield return null; // Waits one frame to ensure the animation state updates
 
                 activeUnit.snd_Heavy.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
-                float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
-                yield return new WaitForSeconds(animationLength);
                 ActionCam.SetActive(false);
                 MainCam.SetActive(true);
                 DealDamage(6);
+
+                inputGotten = true; // Move this here after the attack is processed.
                 break;
             }
             else if (Input.GetButtonDown("Fire2") && activeUnit.currentAP >= 2)
             {
-                inputGotten = true;
                 activeUnit.currentAP -= 2;
                 combo += ("M");//Adds this to our combo, relevant for later in the deal damage part.
                 CheckCombo();
                 if (special_attack == true)
                 {
-                    RunSpecial();
+                    yield return StartCoroutine(RunSpecial());
                 }
                 else
                 {
                     activeAnimator.SetTrigger("TryMedium");
+                    
+                    yield return null;
+
+                    while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName("TryMedium"))
+                    {
+                        yield return null;
+                    }
+
+                    float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
+                    yield return new WaitForSeconds(animationLength);
                 }
                 yield return null; // Waits one frame to ensure the animation state updates
                 activeUnit.snd_Medium.Play();
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
-                float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
-                yield return new WaitForSeconds(animationLength);
                 ActionCam.SetActive(false);
                 MainCam.SetActive(true);
                 DealDamage(4);
+
+                inputGotten = true; // Move this here after the attack is processed.
                 break;
             }
             else if (Input.GetButtonDown("Fire3") && activeUnit.currentAP >= 1)
             {
-                inputGotten = true;
                 activeUnit.currentAP -= 1;
                 combo += ("L");//Adds this to our combo, relevant for later in the deal damage part.
                 CheckCombo();
                 if (special_attack == true)
                 {
-                    RunSpecial();
+                    yield return StartCoroutine(RunSpecial());
                 }
                 else
                 {
                     activeAnimator.SetTrigger("TryLight");
+                    activeUnit.snd_Light.Play();
+
+                    yield return null;
+
+                    while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Light State"))
+                    {
+                        yield return null;
+                    }
+
+                    float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
+                    yield return new WaitForSeconds(animationLength);
                 }
                 yield return null; // Waits one frame to ensure the animation state updates
-                activeUnit.snd_Light.Play();
+                
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
-                float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
-                yield return new WaitForSeconds(animationLength);
                 ActionCam.SetActive(false);
                 MainCam.SetActive(true);
                 DealDamage(2);
+
+                inputGotten = true; // Move this here after the attack is processed.
                 break;
             }
             else if (Input.GetButtonDown("Cancel"))
@@ -561,7 +589,7 @@ public class BattleSystem : MonoBehaviour
         //90 + (attacker Agility - defender Agility)%
         //Minimum of 5%, maximum of 95%
         float HitRate = (Mathf.Clamp(90 + activeUnit.Agility - targetUnit.Agility , 5, 95))*activeUnit.agilityMultiplier;//multiplies by any speed buffs/debufs
-        Debug.Log("Hit Rate is " + HitRate + "%");
+        //Debug.Log("Hit Rate is " + HitRate + "%");
         return HitRate;
     }
     float Crit() // detirmines the % chance of an attack critting.
@@ -597,7 +625,7 @@ public class BattleSystem : MonoBehaviour
 
         isHit = UnityEngine.Random.Range(0f, 100f) <= Hit(); //check if we hit
         hasHitCalcd = true;
-        Debug.Log("Hit Has been calculated");
+        //Debug.Log("Hit Has been calculated");
         bool isCrit = UnityEngine.Random.Range(0f, 100f) <= Crit(); //check if we crit
         //uses the string combo and each player's combo list to check if anything activates
 
@@ -796,11 +824,13 @@ public class BattleSystem : MonoBehaviour
         playerUnit[2].Defense = GameManager.Instance.p2DEF;
     }
 
-    private void RunSpecial()
+    private  IEnumerator RunSpecial()
     {
         MainCam.SetActive(false); //turn off main cam
         ActionCam.SetActive(true); //turn on action cam
         
+        string animStateName = ""; // Declare it outside the if-blocks
+
         if (currentSpecialAttack == "Inspiration")
         {
             //specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
@@ -811,7 +841,8 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("SWORD DANCE!");
             activeAnimator.SetTrigger("Sword Dance");
-            CAManimator.SetTrigger("Sword Dance Cam");
+            animStateName = currentSpecialAttack;
+            //CAManimator.SetTrigger("Sword Dance Cam");
         }
         else if (currentSpecialAttack == "Bulking")
         {
@@ -828,14 +859,27 @@ public class BattleSystem : MonoBehaviour
         else if (currentSpecialAttack == "Critical Glare")
         {
             Debug.Log("CRITICAL GLARE!");
+            activeAnimator.SetTrigger("Critical Glare");
         }
         else if (currentSpecialAttack == "none")
         {
             Debug.Log("No special attack assigned");
         }
-        //currentSpecialAttack = "none";
-        //activeAnimator.SetTrigger("specialCharacterAnim");
-        //CAManimator.SetTrigger("specialCamAnim");
-        //special_attack = false;
+        yield return null; // Wait one frame for animator to update
+
+        // Wait for animation to begin
+        while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName(animStateName))
+        {
+            Debug.Log("You're not my fav :/");
+            yield return null;
+        }
+
+        float specialAnimLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(specialAnimLength);
+
+        ActionCam.SetActive(false);
+        MainCam.SetActive(true);
+        special_attack = false;
+        currentSpecialAttack = "none";
     }
 }
