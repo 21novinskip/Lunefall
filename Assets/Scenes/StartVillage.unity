@@ -561,6 +561,7 @@ MonoBehaviour:
   lckText: {fileID: 1811364263}
   defSlider: {fileID: 616556928}
   defText: {fileID: 926514551}
+  lvlText: {fileID: 0}
   menuPortrait: {fileID: 1767286601}
   Karlot: {fileID: 21300000, guid: 81f6424cbed501e45aa105b42b60818c, type: 3}
   Catalina: {fileID: 21300000, guid: 09f06d66d4d5ac54e8c293f3c8afcde2, type: 3}

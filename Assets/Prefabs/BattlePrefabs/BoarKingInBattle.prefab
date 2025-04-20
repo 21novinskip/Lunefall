@@ -658,7 +658,7 @@ GameObject:
   - component: {fileID: 5010035189116845201}
   m_Layer: 0
   m_Name: BoarKingInBattle
-  m_TagString: Untagged
+  m_TagString: enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -693,9 +693,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: BoarKing
-  maxHP: 76
+  maxHP: 66
   maxAP: 1
-  currentHP: 76
+  currentHP: 66
   currentAP: 3
   Strength: 11
   Agility: 9
@@ -707,7 +707,7 @@ MonoBehaviour:
   luckGrowth: 0
   defenseGrowth: 0
   unitLevel: 1
-  expOnDeath: 80
+  expOnDeath: 160
   rawIncrease: 1
   attackMultiplier: 1
   attackMaximum: 1.8
@@ -1153,7 +1153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.9, y: 25.5}
+  m_AnchoredPosition: {x: 2.2, y: 10.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2792694490227869695

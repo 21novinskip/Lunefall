@@ -18,6 +18,7 @@ public class PauseMenuButtons : MonoBehaviour
     public TMP_Text lckText;
     public Slider defSlider;
     public TMP_Text defText;
+    public TMP_Text lvlText;
     [Header("Player portraits")]
     public Image menuPortrait;
     public Sprite Karlot;
@@ -46,6 +47,7 @@ public class PauseMenuButtons : MonoBehaviour
         activePlayer = "p0";
         //Shows his portrait and Stats
         menuPortrait.sprite = Karlot;
+        lvlText.text = "Lvl: " + GameManager.Instance.partyLevel.ToString();
         strSlider.value = GameManager.Instance.p0STR;
         strText.text = GameManager.Instance.p0STR.ToString();
         agiSlider.value = GameManager.Instance.p0AGI;
@@ -97,7 +99,7 @@ public class PauseMenuButtons : MonoBehaviour
         activePlayer = "p1";
 
         menuPortrait.sprite = Catalina;
-
+        lvlText.text = "Lvl: " + GameManager.Instance.partyLevel.ToString();
         strSlider.value = GameManager.Instance.p1STR;
         strText.text = GameManager.Instance.p1STR.ToString();
         agiSlider.value = GameManager.Instance.p1AGI;
@@ -149,7 +151,7 @@ public class PauseMenuButtons : MonoBehaviour
         activePlayer = "p2";
 
         menuPortrait.sprite = Hildegard;
-
+        lvlText.text = "Lvl: " + GameManager.Instance.partyLevel.ToString();
         strSlider.value = GameManager.Instance.p2STR;
         strText.text = GameManager.Instance.p2STR.ToString();
         agiSlider.value = GameManager.Instance.p2AGI;

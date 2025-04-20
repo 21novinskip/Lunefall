@@ -44,7 +44,7 @@ public class MageCombos : MonoBehaviour
         pUnit3 = pMember3.GetComponent<Unit>();
 
         batSys = GameObject.FindWithTag("BattleSystem");
-        eUnit = batSys.GetComponent<BattleSystem>().targetUnit;
+        eUnit = GameObject.FindWithTag("enemy1").GetComponent<Unit>();
         //scaleChange = new Vector3(4.5f, 4.5f, 4.5f);
     }  
    

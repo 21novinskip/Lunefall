@@ -33472,6 +33472,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Villager
       objectReference: {fileID: 0}
+    - target: {fileID: 849138131861831078, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6634956060183028454, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
       propertyPath: m_Size.y
       value: 8.209103

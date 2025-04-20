@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -80,7 +81,13 @@ public class GameManager : MonoBehaviour
     public string previousScene;
     public string previousSceneOW;
     public int expTally;
-    public SceneTransition scenTr;
+    //public SceneTransition scenTr;
+
+    public Image transImg;
+    [Header("Pause Button stuff")]
+    public GameObject pauseBackground;
+    public GameObject pauseText;
+
     private void Awake()
     {
         
@@ -130,12 +137,51 @@ public class GameManager : MonoBehaviour
             pause_screen.SetActive(false);
         }
     }
+    IEnumerator FadeIn(Scene thisScene)
+    {
+        if (thisScene.name == "MainMenu" || thisScene.name == "cutScene")
+        {
+            transImg.gameObject.SetActive(false);
+        }
+        else 
+        {
+            while (transImg.color.a > 0)
+            {
+                Color newColor = transImg.color;
+                newColor.a -= 0.005f;
+                transImg.color = newColor;
+                yield return null;
+            }
+            yield return null;
+            transImg.gameObject.SetActive(false);
+        }
+    }
     //triggers whenever a scene is loaded
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (!transImg.gameObject.activeInHierarchy)
+        {
+            transImg.gameObject.SetActive(true);
+        }
+        Color originalColor = transImg.color;
+        originalColor.a = 1;
+        transImg.color = originalColor;
+        StartCoroutine(FadeIn(scene));
+        
         GameState = GAMESTATES.ROAM;
         //StartCoroutine(scenTr.EnteringTransition());
         //calls specific setup function based on which scene is loaded
+        if (scene.name == "MainMenu" || scene.name == "cutScene" || scene.name == "BattleScene" || scene.name == "BattleTutorial")
+        {
+            pauseBackground.SetActive(false);
+            pauseText.SetActive(false);
+        }
+        else 
+        {
+            pauseBackground.SetActive(true);
+            pauseText.SetActive(true);
+        }
+        
         if (scene.name == "StartVillage")
         {
             StartVillageSetup();
