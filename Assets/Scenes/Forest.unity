@@ -31395,6 +31395,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6984482165872901905, guid: a196085bc237ce048805e6a0bf6b514d, type: 3}
+      propertyPath: m_TagString
+      value: enemy1
+      objectReference: {fileID: 0}
     - target: {fileID: 7235934568041184279, guid: a196085bc237ce048805e6a0bf6b514d, type: 3}
       propertyPath: m_Size.x
       value: 5.885071
@@ -32189,6 +32193,7 @@ MonoBehaviour:
   lckText: {fileID: 0}
   defSlider: {fileID: 0}
   defText: {fileID: 0}
+  lvlText: {fileID: 0}
   menuPortrait: {fileID: 0}
   Karlot: {fileID: 0}
   Catalina: {fileID: 0}
@@ -32871,7 +32876,9 @@ MonoBehaviour:
   previousScene: 
   previousSceneOW: 
   expTally: 0
-  scenTr: {fileID: 0}
+  transImg: {fileID: 0}
+  pauseBackground: {fileID: 0}
+  pauseText: {fileID: 0}
 --- !u!4 &1240916088
 Transform:
   m_ObjectHideFlags: 0
