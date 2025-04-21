@@ -372,12 +372,15 @@ public class BattleSystem : MonoBehaviour
                 else
                 {
                     activeAnimator.SetTrigger("TryHeavy");
+                    activeUnit.snd_Heavy.Play();
                     yield return null;
 
+                    /*
                     while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName("TryHeavy"))
                     {
                         yield return null;
                     }
+                    */
 
                     float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
                     yield return new WaitForSeconds(animationLength);
@@ -385,7 +388,7 @@ public class BattleSystem : MonoBehaviour
                 }
                 yield return null; // Waits one frame to ensure the animation state updates
 
-                activeUnit.snd_Heavy.Play();
+                
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 ActionCam.SetActive(false);
                 MainCam.SetActive(true);
@@ -406,19 +409,21 @@ public class BattleSystem : MonoBehaviour
                 else
                 {
                     activeAnimator.SetTrigger("TryMedium");
-                    
+                    activeUnit.snd_Medium.Play();
                     yield return null;
 
+/*
                     while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName("TryMedium"))
                     {
                         yield return null;
                     }
+*/
 
                     float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
                     yield return new WaitForSeconds(animationLength);
                 }
                 yield return null; // Waits one frame to ensure the animation state updates
-                activeUnit.snd_Medium.Play();
+                
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
                 ActionCam.SetActive(false);
                 MainCam.SetActive(true);
@@ -443,10 +448,12 @@ public class BattleSystem : MonoBehaviour
 
                     yield return null;
 
+/*
                     while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName("Light State"))
                     {
                         yield return null;
                     }
+*/
 
                     float animationLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
                     yield return new WaitForSeconds(animationLength);
@@ -841,8 +848,8 @@ public class BattleSystem : MonoBehaviour
         {
             Debug.Log("SWORD DANCE!");
             activeAnimator.SetTrigger("Sword Dance");
-            animStateName = currentSpecialAttack;
             //CAManimator.SetTrigger("Sword Dance Cam");
+            animStateName = currentSpecialAttack;
         }
         else if (currentSpecialAttack == "Bulking")
         {
@@ -868,11 +875,13 @@ public class BattleSystem : MonoBehaviour
         yield return null; // Wait one frame for animator to update
 
         // Wait for animation to begin
+        /*
         while (!activeAnimator.GetCurrentAnimatorStateInfo(0).IsName(animStateName))
         {
             Debug.Log("You're not my fav :/");
             yield return null;
         }
+        */
 
         float specialAnimLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(specialAnimLength);

@@ -8664,7 +8664,7 @@ Animator:
   m_GameObject: {fileID: 767251305}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ed702126938ec74e979e8a2f48be569, type: 2}
+  m_Controller: {fileID: 9100000, guid: 397d15e74901b0a48b66e7b59eb185f9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -16799,6 +16799,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  targetUnit: {fileID: 0}
   playerSpawnPoint:
   - {fileID: 1543156810708456719}
   - {fileID: 4580842897335063011}
@@ -16842,6 +16843,7 @@ MonoBehaviour:
   CAManimator: {fileID: 0}
   state: 0
   lastState: 0
+  combo: 
   totalEXP: 0
   p0StrengthSlider: {fileID: 0}
   p0AgilitySlider: {fileID: 0}
@@ -16861,6 +16863,8 @@ MonoBehaviour:
   CombatUpdates: 0
   special_attack: 0
   currentSpecialAttack: none
+  hasHitCalcd: 0
+  isHit: 0
 --- !u!1 &1852459301
 GameObject:
   m_ObjectHideFlags: 0

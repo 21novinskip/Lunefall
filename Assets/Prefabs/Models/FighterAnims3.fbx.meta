@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 55e3aae6f0ec8ed4ba8aa65ac932f98d
+guid: 4a0a36d5cc4e25943972bcb32409ff7a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FighterBody
-    second: {fileID: 2100000, guid: a2f96d875030848439e37aa674034d27, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FighterFace
-    second: {fileID: 2100000, guid: 66af6b86fa6f8ff449e13ca403bb14f3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FighterLight
-    second: {fileID: 2100000, guid: db053c394b45cac4da65e786fe2a0620, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FighterMetal
-    second: {fileID: 2100000, guid: b4ac3aa4064c6bf449ec4c4a7d89432b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FighterSword
-    second: {fileID: 2100000, guid: 0544f54e70846654792b25d9d7764bb4, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
