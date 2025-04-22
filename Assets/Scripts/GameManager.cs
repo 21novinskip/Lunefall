@@ -171,6 +171,21 @@ public class GameManager : MonoBehaviour
     //triggers whenever a scene is loaded
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        //puts the boxes in the right spots
+        if ((scene.name != "BattleScene" && scene.name != "BattleTutorial") && savedLocations.Length > 0)
+        {
+            var sce_man = GameObject.FindWithTag("SceneManager").GetComponent<SceneTransformDetails>();
+            for (int i = 0; i < savedLocations.Length; i++)
+            {
+                sce_man.sceneBoxes[i].boxObj.transform.position = new Vector3(
+                    savedLocations[i].savedX,
+                    savedLocations[i].savedY,
+                    savedLocations[i].savedZ
+                );
+            }
+            savedLocations = new SavedBox[0];
+        }
+        //Fade In
         if (!transImg.gameObject.activeInHierarchy)
         {
             transImg.gameObject.SetActive(true);

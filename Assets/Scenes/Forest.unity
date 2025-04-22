@@ -31244,6 +31244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7768416679622964367, guid: 1953bf4c5fa1b34499ffe2cf150d09d8, type: 3}
+      propertyPath: sceneBoxes.Array.data[0].boxObj
+      value: 
+      objectReference: {fileID: 1679058842}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33066,7 +33070,7 @@ MonoBehaviour:
   pauseBackground: {fileID: 0}
   pauseText: {fileID: 0}
   sceneManagerObject: {fileID: 0}
-  boxLocations: []
+  savedLocations: []
 --- !u!4 &1240916088
 Transform:
   m_ObjectHideFlags: 0
@@ -34073,6 +34077,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abb601fd5b8e7e543bb392a06cf31b92, type: 3}
+--- !u!1 &1679058842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6062801248267420324, guid: abb601fd5b8e7e543bb392a06cf31b92, type: 3}
+  m_PrefabInstance: {fileID: 1679058841}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1786283877
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,9 +14,17 @@ public class SceneTransformDetails : MonoBehaviour
     }
     public BoxTransform[] sceneBoxes;
     // Start is called before the first frame update
-    void Start()
+    public void SavePos()
     {
-        
+        if (sceneBoxes != null || sceneBoxes.Length != 0)
+        {
+            foreach (BoxTransform box in sceneBoxes)
+            {
+                box.boxX = box.boxObj.transform.position.x;
+                box.boxY = box.boxObj.transform.position.y;
+                box.boxZ = box.boxObj.transform.position.z;
+            }
+        }
     }
 
     // Update is called once per frame

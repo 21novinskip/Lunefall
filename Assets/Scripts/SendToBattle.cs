@@ -36,7 +36,7 @@ public class SendToBattle : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        
+        GameManager.Instance.sceneManagerObject.GetComponent<SceneTransformDetails>().SavePos();
         var scnObj = GameManager.Instance.sceneManagerObject.GetComponent<SceneTransformDetails>().sceneBoxes;
         //saves box coordinates
         if (scnObj != null)

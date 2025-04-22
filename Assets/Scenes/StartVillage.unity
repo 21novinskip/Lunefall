@@ -2303,6 +2303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7768416679622964367, guid: 1953bf4c5fa1b34499ffe2cf150d09d8, type: 3}
+      propertyPath: sceneBoxes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2977,7 +2981,7 @@ MonoBehaviour:
   pauseBackground: {fileID: 0}
   pauseText: {fileID: 0}
   sceneManagerObject: {fileID: 0}
-  boxLocations: []
+  savedLocations: []
 --- !u!4 &410556230
 Transform:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class TankCombos : MonoBehaviour
         pUnit3 = pMember3.GetComponent<Unit>();
 
         batSys = GameObject.FindWithTag("BattleSystem");
-        eUnit = GameObject.FindWithTag("enemy1").GetComponent<Unit>();
+        eUnit = GameObject.FindWithTag("enemy0").GetComponent<Unit>();
         //scaleChange = new Vector3(4.5f, 4.5f, 4.5f);
     }
 
