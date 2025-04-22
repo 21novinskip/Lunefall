@@ -137,11 +137,19 @@ public class GameManager : MonoBehaviour
                 GameState = GAMESTATES.PAUSE;
                 pause_screen.SetActive(true);
                 pause_screen.GetComponent<PauseMenuButtons>().ShowKarlotStats();
+
+                Color pCola = pauseBackground.GetComponent<Image>().color;
+                pCola.a = 1;
+                pauseBackground.GetComponent<Image>().color = pCola;
             }
             else
             {
                 GameState = LastState;
                 pause_screen.SetActive(false);
+
+                Color pColb = pauseBackground.GetComponent<Image>().color;
+                pColb.a = 0.4f;
+                pauseBackground.GetComponent<Image>().color = pColb;
             }
         }
         else if (GameState != GAMESTATES.PAUSE && pause_screen.activeInHierarchy == true)
@@ -198,7 +206,7 @@ public class GameManager : MonoBehaviour
         GameState = GAMESTATES.ROAM;
         //StartCoroutine(scenTr.EnteringTransition());
         //calls specific setup function based on which scene is loaded
-        if (scene.name == "MainMenu" || scene.name == "cutScene" || scene.name == "BattleScene" || scene.name == "BattleTutorial")
+        if (scene.name == "MainMenu" || scene.name == "cutScene" || scene.name == "BattleTutorial")
         {
             pauseBackground.SetActive(false);
             pauseText.SetActive(false);
@@ -366,6 +374,7 @@ public class GameManager : MonoBehaviour
     }
     public void ApplyLevel()
     {
+        pauseText.GetComponent<Animator>().SetTrigger("lvlup");
         var bsys = GameObject.Find("BattleSystem").GetComponent<BattleSystem>();
         partyLevel += 1;
         p0MaxHP = bsys.playerUnit[0].maxHP;

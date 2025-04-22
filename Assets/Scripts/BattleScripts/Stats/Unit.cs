@@ -70,7 +70,7 @@ public class Unit : MonoBehaviour
         int defGain = Mathf.RoundToInt(unitLevel * defenseGrowth / 100f);
         Debug.Log(unitName + " gained " + defGain + " Defense!");
         Defense += defGain; 
-        if (GameManager.Instance.partyLevel == 2 || GameManager.Instance.partyLevel == 3 || GameManager.Instance.partyLevel == 5 || GameManager.Instance.partyLevel == 7)
+        if (GameManager.Instance.partyLevel == 1 || GameManager.Instance.partyLevel == 2 || GameManager.Instance.partyLevel == 4 || GameManager.Instance.partyLevel == 6)
         {
             maxAP += 1;
         }
