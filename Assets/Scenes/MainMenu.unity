@@ -2187,6 +2187,14 @@ PrefabInstance:
       propertyPath: tutorialMusic
       value: 
       objectReference: {fileID: 8300000, guid: 686dbc371a5fc2e4bb4d010946810b86, type: 3}
+    - target: {fileID: 2764859587524468381, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: boxLocations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764859587524468381, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: savedLocations.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8225413987767560458, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
       propertyPath: m_Name
       value: GameManager

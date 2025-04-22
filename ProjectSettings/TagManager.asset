@@ -19,6 +19,7 @@ TagManager:
   - enemy2
   - EquipButton
   - UnequipButton
+  - SceneManager
   layers:
   - Default
   - TransparentFX

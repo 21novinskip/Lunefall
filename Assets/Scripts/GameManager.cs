@@ -24,6 +24,14 @@ public class GameManager : MonoBehaviour
     public bool tutorialFinished = false;//a flag that the tutorial has been finished
     public bool tutorialJUSTFinished = false;//a flag that you JUST finished the tutorial, a few things need to happen immediately after and never again
 
+    [System.Serializable]
+    public class SavedBox
+    {
+        public float savedX;
+        public float savedY;
+        public float savedZ;
+    }
+
     public static GameManager Instance;
     public int partyLevel;
     public int currentEXP;
@@ -88,6 +96,9 @@ public class GameManager : MonoBehaviour
     [Header("Pause Button stuff")]
     public GameObject pauseBackground;
     public GameObject pauseText;
+
+    public GameObject sceneManagerObject;
+    public SavedBox[] savedLocations;
 
     private void Awake()
     {
@@ -179,6 +190,7 @@ public class GameManager : MonoBehaviour
         }
         else 
         {
+            sceneManagerObject = GameObject.FindWithTag("SceneManager");
             pauseBackground.SetActive(true);
             pauseText.SetActive(true);
         }

@@ -35,6 +35,23 @@ public class SendToBattle : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        
+        var scnObj = GameManager.Instance.sceneManagerObject.GetComponent<SceneTransformDetails>().sceneBoxes;
+        //saves box coordinates
+        if (scnObj != null)
+        {
+            GameManager.Instance.savedLocations = new GameManager.SavedBox[scnObj.Length];
+            for (int i = 0; i < scnObj.Length; i++)
+            {
+                GameManager.Instance.savedLocations[i] = new GameManager.SavedBox(); // instantiate the class
+                GameManager.Instance.savedLocations[i].savedX = scnObj[i].boxX;
+                GameManager.Instance.savedLocations[i].savedY = scnObj[i].boxY;
+                GameManager.Instance.savedLocations[i].savedZ = scnObj[i].boxZ;
+            }
+        }
+        
+        
         //Debug.Log("Colliding with something: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("witchOW") || collision.gameObject.CompareTag("fighterOW") || collision.gameObject.CompareTag("tankOW"))
         {
