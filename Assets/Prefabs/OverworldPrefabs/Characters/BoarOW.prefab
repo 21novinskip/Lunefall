@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPFB1: {fileID: 5055094313858013483, guid: 794de790ee73428428b37a42506e1df6, type: 3}
+  enemyPFB2: {fileID: 0}
+  enemyPFB3: {fileID: 0}
+  battleMusic: {fileID: 8300000, guid: 686dbc371a5fc2e4bb4d010946810b86, type: 3}
   uniqueID: 
   thisScene: 
   enemyDefeated: 0

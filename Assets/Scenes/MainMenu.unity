@@ -2183,6 +2183,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2764859587524468381, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: tutorialMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 686dbc371a5fc2e4bb4d010946810b86, type: 3}
     - target: {fileID: 8225413987767560458, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
       propertyPath: m_Name
       value: GameManager

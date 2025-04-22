@@ -38,6 +38,11 @@ public class MusicManager : MonoBehaviour
             snd_music1.clip = GameManager.Instance.battleMusic;
             snd_music1.Play(); 
         }
+        if (scene.name == "BattleTutorial")
+        {
+            snd_music1.clip = GameManager.Instance.tutorialMusic;
+            snd_music1.Play(); 
+        }
 //calls title music (static)
         if (scene.name == "MainMenu")
         {

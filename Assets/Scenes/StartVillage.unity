@@ -2915,7 +2915,9 @@ MonoBehaviour:
   previousScene: 
   previousSceneOW: 
   expTally: 0
-  scenTr: {fileID: 1696936713}
+  transImg: {fileID: 0}
+  pauseBackground: {fileID: 0}
+  pauseText: {fileID: 0}
 --- !u!4 &410556230
 Transform:
   m_ObjectHideFlags: 0
@@ -31131,6 +31133,10 @@ PrefabInstance:
       propertyPath: uniqueID
       value: boar_village-1
       objectReference: {fileID: 0}
+    - target: {fileID: 7247727880203786509, guid: 253cb05893f0ab049a309f80e06beaed, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 686dbc371a5fc2e4bb4d010946810b86, type: 3}
     - target: {fileID: 7247727880203786509, guid: 253cb05893f0ab049a309f80e06beaed, type: 3}
       propertyPath: enemyDefeated
       value: 0
