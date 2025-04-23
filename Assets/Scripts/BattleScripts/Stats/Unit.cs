@@ -47,6 +47,11 @@ public class Unit : MonoBehaviour
     public AudioSource snd_Medium;
     public AudioSource snd_Heavy;
 
+    public AudioSource snd_Inspiration;
+    public AudioSource snd_Sword_Dance;
+    public AudioSource snd_Piercing_Blow;
+    public AudioSource snd_Moon_Defender;
+
     public void LevelUp()
     {
         unitLevel += 1;

@@ -840,16 +840,35 @@ public class BattleSystem : MonoBehaviour
 
         if (currentSpecialAttack == "Inspiration")
         {
-            //specialCharacterAnim = "SwordDanceCharacterTrigger" //I will make these triggers in the character animator
-            //specialCamAnim = "SwordDanceCamTrigger" //And I will make these triggers in the camera animator
             Debug.Log("INSPIRATION!");
+            //CAManimator.SetTrigger("Inspiration Cam");
+            activeAnimator.SetTrigger("Inspiration");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Inspiration.Play();
         }
         else if (currentSpecialAttack == "Sword Dance")
         {
             Debug.Log("SWORD DANCE!");
-            activeAnimator.SetTrigger("Sword Dance");
             //CAManimator.SetTrigger("Sword Dance Cam");
+            activeAnimator.SetTrigger("Sword Dance");
             animStateName = currentSpecialAttack;
+            activeUnit.snd_Sword_Dance.Play();
+        }
+        else if (currentSpecialAttack == "Piercing Blow")
+        {
+            Debug.Log("PIERCING BLOW!");
+            //CAManimator.SetTrigger("Piercing Blow Cam");
+            activeAnimator.SetTrigger("Piercing Blow");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Piercing_Blow.Play();
+        }
+        else if (currentSpecialAttack == "Moon Defender")
+        {
+            Debug.Log("MOON DEFENDER!");
+            //CAManimator.SetTrigger("Moon Defender Cam");
+            activeAnimator.SetTrigger("Moon Defender");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Moon_Defender.Play();
         }
         else if (currentSpecialAttack == "Bulking")
         {

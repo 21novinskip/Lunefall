@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 65ee19543caa0814a86971eb8615fc3a
+guid: 330a5752adb9f864895ed0269cb1b66b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,27 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FighterBody
-    second: {fileID: 2100000, guid: 8a3faf235b9912f4c87c4e8bc241bad9, type: 2}
+    second: {fileID: 2100000, guid: 6bc1a5dfad290e44388dde7d2f254a46, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FighterFace
-    second: {fileID: 2100000, guid: 153e20b6deaa28748bcbc3c03f5310e2, type: 2}
+    second: {fileID: 2100000, guid: f149ac6e148c4bb46a8248e806fe96d2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FighterLight
-    second: {fileID: 2100000, guid: 424b9a959622f42439c344bad8841a00, type: 2}
+    second: {fileID: 2100000, guid: 21bdb479be15e5c4ab2e4f44070fc161, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FighterMetal
-    second: {fileID: 2100000, guid: 654d452b1ecb6bc4d9f3e31eeea45334, type: 2}
+    second: {fileID: 2100000, guid: d9af72d17876f7a48ba1d767c4524d40, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FighterSword
-    second: {fileID: 2100000, guid: 53d5638c89edcc44d9c12b9b991a369d, type: 2}
+    second: {fileID: 2100000, guid: 7d879cd6e0f07bf498957caf245857b5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
