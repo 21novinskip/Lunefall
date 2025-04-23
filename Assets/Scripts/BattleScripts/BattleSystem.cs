@@ -873,10 +873,34 @@ public class BattleSystem : MonoBehaviour
         else if (currentSpecialAttack == "Bulking")
         {
             Debug.Log("BULKING!");
+            //CAManimator.SetTrigger("Bulking Cam");
+            activeAnimator.SetTrigger("Bulking");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Bulking.Play();
         }
         else if (currentSpecialAttack == "Encore")
         {
             Debug.Log("ENCORE!");
+            //CAManimator.SetTrigger("Encore Cam");
+            activeAnimator.SetTrigger("Encore");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Encore.Play();
+        }
+        else if (currentSpecialAttack == "Punishing Blow")
+        {
+            Debug.Log("PUNISHING BLOW!");
+            //CAManimator.SetTrigger("Punishing Blow Cam");
+            activeAnimator.SetTrigger("Punishing Blow");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Punishing_Blow.Play();
+        }
+        else if (currentSpecialAttack == "Protector of the Meek")
+        {
+            Debug.Log("Protector OF THE MEEK!");
+            //CAManimator.SetTrigger("Protector of the Meek Cam");
+            activeAnimator.SetTrigger("Protector of the Meek");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Defender_of_the_Meek.Play();
         }
         else if (currentSpecialAttack == "Overcharge")
         {

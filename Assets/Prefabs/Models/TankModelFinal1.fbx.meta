@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72ad23a8a48c42640ae068cb6cfd3c6b
+guid: 49108b4b60818b648a2ffa3fdab278ee
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,37 +8,37 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TankFace
-    second: {fileID: 2100000, guid: 43e05eeec80256d4a980df514a5304a7, type: 2}
+    second: {fileID: 2100000, guid: 7b8331a8bfbe7464a9dc735d1e5d15b4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TankGlow
-    second: {fileID: 2100000, guid: f8ec045da8dfe4d438cf90ab4b5aea67, type: 2}
+    second: {fileID: 2100000, guid: cea5a1cdb86045c4fb46f8ab4311169d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TankGreen
-    second: {fileID: 2100000, guid: d9f1aa0cd700d1a408a729c3cbdf6286, type: 2}
+    second: {fileID: 2100000, guid: 8c587e1f217977248bbfb9019882aad6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TankHair
-    second: {fileID: 2100000, guid: e4a8534f2e9f196468f0bbe5700b6551, type: 2}
+    second: {fileID: 2100000, guid: 7bda863df55a09843b534959a738659e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TankNavy
-    second: {fileID: 2100000, guid: d56286f8318dfbb48b0b1b882edacf6c, type: 2}
+    second: {fileID: 2100000, guid: a73b31480a119e746aed03bb2166c9ca, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TankShield
-    second: {fileID: 2100000, guid: e78db97365d82254b8c71c46c3542164, type: 2}
+    second: {fileID: 2100000, guid: 0d37ebcf9f50176478e11f78978aa03e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: TankTeal
-    second: {fileID: 2100000, guid: 6192670b471d40f47b2bb5fa1b30ba1f, type: 2}
+    second: {fileID: 2100000, guid: 3cceab116c8e4f140b4fbd975b6260fb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

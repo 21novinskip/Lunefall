@@ -45,6 +45,7 @@ public class TankCombos : MonoBehaviour
 
         batSys = GameObject.FindWithTag("BattleSystem");
         eUnit = GameObject.FindWithTag("enemy0").GetComponent<Unit>();
+        //Might have fucked up the above line somehow
         //scaleChange = new Vector3(4.5f, 4.5f, 4.5f);
     }
 
@@ -81,7 +82,7 @@ public class TankCombos : MonoBehaviour
     private void Encore()
     {
         Debug.Log("Encore!");
-        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Envoke";
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Encore";
         if (pUnit1.isDead == true)
         {
             pUnit1.isDead = false;
@@ -115,7 +116,7 @@ public class TankCombos : MonoBehaviour
     private void Protector()
     {
         Debug.Log("Protector of the Meek!");
-        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Protector";
+        batSys.GetComponent<BattleSystem>().currentSpecialAttack = "Protector of the Meek";
         var protectr = ((5 - (pUnit1.currentHP / pUnit1.maxHP)) + (5 - (pUnit2.currentHP / pUnit2.maxHP)));
         pUnit3.rawIncrease = protectr;
 
