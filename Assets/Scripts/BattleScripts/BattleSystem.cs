@@ -905,11 +905,34 @@ public class BattleSystem : MonoBehaviour
         else if (currentSpecialAttack == "Overcharge")
         {
             Debug.Log("OVERCHARGE!");
+            //CAManimator.SetTrigger("Overcharge");
+            activeAnimator.SetTrigger("Overcharge");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Overcharge.Play();
         }
         else if (currentSpecialAttack == "Critical Glare")
         {
             Debug.Log("CRITICAL GLARE!");
+            //CAManimator.SetTrigger("Critical Glare");
             activeAnimator.SetTrigger("Critical Glare");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Critical_Glare.Play();
+        }
+        else if (currentSpecialAttack == "Tragic Blow")
+        {
+            Debug.Log("TRAGIC BLOW!");
+            //CAManimator.SetTrigger("Tragic Blow");
+            activeAnimator.SetTrigger("Tragic Blow");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Tragic_Blow.Play();
+        }
+        else if (currentSpecialAttack == "Stagnant Blow")
+        {
+            Debug.Log("STAGNANT BLOW!");
+            //CAManimator.SetTrigger("Stagnant BLow");
+            activeAnimator.SetTrigger("Stagnant Blow");
+            animStateName = currentSpecialAttack;
+            activeUnit.snd_Stagnant_Blow.Play();
         }
         else if (currentSpecialAttack == "none")
         {

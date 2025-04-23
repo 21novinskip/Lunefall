@@ -57,6 +57,11 @@ public class Unit : MonoBehaviour
     public AudioSource snd_Punishing_Blow;
     public AudioSource snd_Defender_of_the_Meek;
 
+    public AudioSource snd_Critical_Glare;
+    public AudioSource snd_Overcharge;
+    public AudioSource snd_Stagnant_Blow;
+    public AudioSource snd_Tragic_Blow;
+
     
     public void LevelUp()
     {

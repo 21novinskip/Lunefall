@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f36a7ac5cb07d84ba05d16a08bc969d
+guid: 7186071905858124d994b6d71ea30ef2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,27 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MageCloth
-    second: {fileID: 2100000, guid: 89629e9dc0e051f4b954fbc025b10ff9, type: 2}
+    second: {fileID: 2100000, guid: 537223968b6d83d448fe4119dda3d45e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MageFace
-    second: {fileID: 2100000, guid: 44e82fd1d97aad045b5284e8dc6c4ec7, type: 2}
+    second: {fileID: 2100000, guid: d204cc2e60921e944a9b9bb92e382289, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MageHair
-    second: {fileID: 2100000, guid: d6c272c6006fbe54282cd1988e90872c, type: 2}
+    second: {fileID: 2100000, guid: 1eb8938e6a8df7f47852256a7918cc0c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MageSkin
-    second: {fileID: 2100000, guid: ecf75d3eee19b7d498901ed3dd84ffb5, type: 2}
+    second: {fileID: 2100000, guid: 7f08a69cec969934ca705ccffb51103a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: MageWand
-    second: {fileID: 2100000, guid: 50e55a069f0edb34fb2cc26216f72913, type: 2}
+    second: {fileID: 2100000, guid: 17e07c01310fd594288e193db18839b3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
