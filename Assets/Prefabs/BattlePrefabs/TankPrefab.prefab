@@ -182,6 +182,10 @@ MonoBehaviour:
   snd_Encore: {fileID: 8700599673167180244}
   snd_Punishing_Blow: {fileID: 7887238024797916769}
   snd_Defender_of_the_Meek: {fileID: 442578659040470432}
+  snd_Critical_Glare: {fileID: 0}
+  snd_Overcharge: {fileID: 0}
+  snd_Stagnant_Blow: {fileID: 0}
+  snd_Tragic_Blow: {fileID: 0}
 --- !u!114 &5619126594132862385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,7 +524,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 40122570e6fec8b4aa6b5deac9675f21, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -616,7 +620,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7841650248928a14383cdae822174bb3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -712,7 +716,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1ca8b689f60ea944cb94586ed147d4c9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -808,7 +812,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c63abac0f9e32f842a240f2dd1eb7819, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

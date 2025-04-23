@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
     public AudioClip titleMusic;
     public AudioClip startVillageMusic;
     public AudioClip forestMusic;
+    public AudioClip graveyardMusic;
     public AudioClip tutorialMusic;
 
     public string previousScene;

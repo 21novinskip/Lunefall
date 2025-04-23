@@ -93,6 +93,14 @@ MonoBehaviour:
   snd_Sword_Dance: {fileID: 5261116036756949385}
   snd_Piercing_Blow: {fileID: 2575562196893850264}
   snd_Moon_Defender: {fileID: 905593738092559060}
+  snd_Bulking: {fileID: 0}
+  snd_Encore: {fileID: 0}
+  snd_Punishing_Blow: {fileID: 0}
+  snd_Defender_of_the_Meek: {fileID: 0}
+  snd_Critical_Glare: {fileID: 0}
+  snd_Overcharge: {fileID: 0}
+  snd_Stagnant_Blow: {fileID: 0}
+  snd_Tragic_Blow: {fileID: 0}
 --- !u!114 &1809786221144601224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +343,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7de644eca41c74148b435e4774cbc900, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -431,7 +439,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e525df02f37125147a51e2c76c8b728a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -527,7 +535,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5d45904983fe1a04ab52432f23f3a97e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -623,7 +631,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: de3a535b50006c1408f3eeab4841135d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -719,7 +727,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d4061607079c3124c96ea3b1267c0c38, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

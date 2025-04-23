@@ -82,9 +82,23 @@ public class BattleSystem : MonoBehaviour
     public string currentSpecialAttack = "none";
     public bool hasHitCalcd = false;
     public bool isHit;
-
+[Header("Battlefields")]
+public GameObject battlefield1;
+public GameObject battlefield2;
     void Start()
     {
+        //Changes battle scene based on where you are
+        if (GameManager.Instance.previousScene == "StartVillage" || GameManager.Instance.previousScene == "Forest")
+        {
+            battlefield1.SetActive(true);
+            battlefield2.SetActive(false);
+        }
+        else
+        {
+            battlefield1.SetActive(false);
+            battlefield2.SetActive(true);
+        }
+
         
         CAManimator = Camera.main.GetComponent<Animator>();
 

@@ -61,5 +61,10 @@ public class MusicManager : MonoBehaviour
             snd_music1.clip = GameManager.Instance.forestMusic;
             snd_music1.Play(); 
         }
+        if (scene.name == "GraveyardMT" || scene.name == "BossRoom")
+        {
+            snd_music1.clip = GameManager.Instance.graveyardMusic;
+            snd_music1.Play();
+        }
     }
 }
