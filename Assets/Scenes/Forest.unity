@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 263366753}
   m_Layer: 0
   m_Name: AmbienceManager
-  m_TagString: GameController
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33062,6 +33062,7 @@ MonoBehaviour:
   titleMusic: {fileID: 0}
   startVillageMusic: {fileID: 0}
   forestMusic: {fileID: 0}
+  graveyardMusic: {fileID: 0}
   tutorialMusic: {fileID: 0}
   previousScene: 
   previousSceneOW: 
