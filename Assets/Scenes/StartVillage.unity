@@ -2973,6 +2973,7 @@ MonoBehaviour:
   titleMusic: {fileID: 8300000, guid: 19a541f013d7df94d90d84602f18e56c, type: 3}
   startVillageMusic: {fileID: 8300000, guid: df786a0321ddc0c4cab52cb869a988a1, type: 3}
   forestMusic: {fileID: 8300000, guid: 0ba50c87c71c867458a5bebd26cde81b, type: 3}
+  graveyardMusic: {fileID: 0}
   tutorialMusic: {fileID: 0}
   previousScene: 
   previousSceneOW: 
@@ -31137,7 +31138,7 @@ GameObject:
   - component: {fileID: 1385762585}
   m_Layer: 0
   m_Name: AmbienceManager
-  m_TagString: GameController
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 263366753}
   m_Layer: 0
   m_Name: AmbienceManager
-  m_TagString: GameController
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33062,6 +33062,7 @@ MonoBehaviour:
   titleMusic: {fileID: 0}
   startVillageMusic: {fileID: 0}
   forestMusic: {fileID: 0}
+  graveyardMusic: {fileID: 0}
   tutorialMusic: {fileID: 0}
   previousScene: 
   previousSceneOW: 
@@ -34082,6 +34083,141 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6062801248267420324, guid: abb601fd5b8e7e543bb392a06cf31b92, type: 3}
   m_PrefabInstance: {fileID: 1679058841}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1710564438
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: KillOnCompletion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[0].line
+      value: 'Now Entering: Yara Forest'
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[1].line
+      value: 'Up Ahead: Graveyard Mountain'
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[2].line
+      value: I was trimming the hedge when it wriggled through and popped out right
+        in front of me! I jumped so high I flew right out of the garden.
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[3].line
+      value: "Would you fellows take care of it? I can\u2019t have that beast crushing
+        the new petunias!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[0].character.icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b4b93f8dbea56b438a62ce26890827c, type: 3}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[0].character.name
+      value: Sign
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[1].character.icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b4b93f8dbea56b438a62ce26890827c, type: 3}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[1].character.name
+      value: Sign
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[2].character.icon
+      value: 
+      objectReference: {fileID: 21300000, guid: b2d3fb559accacd4cbb4d3910bfdec98, type: 3}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[2].character.name
+      value: Gardener
+      objectReference: {fileID: 0}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[3].character.icon
+      value: 
+      objectReference: {fileID: 21300000, guid: b2d3fb559accacd4cbb4d3910bfdec98, type: 3}
+    - target: {fileID: 415361449441955515, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: dialogue.dialogueLines.Array.data[3].character.name
+      value: Gardener
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 15.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688119193990285607, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 849138131861831078, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_Name
+      value: Villager (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628290055737194389, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1b4b93f8dbea56b438a62ce26890827c, type: 3}
+    - target: {fileID: 6634956060183028454, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634956060183028454, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634956060183028454, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634956060183028454, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.56
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a98bcb5e3addd0442b9a0a21a45a1fc6, type: 3}
 --- !u!1 &1786283877
 GameObject:
   m_ObjectHideFlags: 0
@@ -50469,3 +50605,4 @@ SceneRoots:
   - {fileID: 1382260621}
   - {fileID: 91162820}
   - {fileID: 588442783}
+  - {fileID: 1710564438}
