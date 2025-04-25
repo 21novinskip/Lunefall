@@ -45817,7 +45817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 911f55518554a914d90f316e0cb0d36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPFB1: {fileID: 5055094313858013483, guid: ff112a2f6bbb6514c94adb097dc99095, type: 3}
+  enemyPFB1: {fileID: 4913097577851812614, guid: d2dff0931664ec9439c0f9126cbd92d1, type: 3}
   enemyPFB2: {fileID: 0}
   enemyPFB3: {fileID: 0}
   battleMusic: {fileID: 8300000, guid: 8a61f1e9aeb236a40b1553f4f4132823, type: 3}

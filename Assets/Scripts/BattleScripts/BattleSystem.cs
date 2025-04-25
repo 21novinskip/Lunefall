@@ -173,6 +173,10 @@ public GameObject battlefield2;
                 {
                     newEnemy[i].transform.rotation = Quaternion.Euler(0f, 233f, 0f);
                 }
+                if (enemyUnit[i].unitName == "Jackalope")
+                {
+                    newEnemy[i].transform.rotation = Quaternion.Euler(0f, -140f, 0f);
+                }
 
             }
         }
