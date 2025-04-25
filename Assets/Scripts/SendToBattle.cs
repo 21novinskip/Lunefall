@@ -36,10 +36,11 @@ public class SendToBattle : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        GameManager.Instance.sceneManagerObject.GetComponent<SceneTransformDetails>().SavePos();
-        var scnObj = GameManager.Instance.sceneManagerObject.GetComponent<SceneTransformDetails>().sceneBoxes;
-        //saves box coordinates
-        if (scnObj != null)
+        if (GameManager.Instance.sceneManagerObject != null)
+        {
+            GameManager.Instance.sceneManagerObject.GetComponent<SceneTransformDetails>().SavePos();
+            var scnObj = GameManager.Instance.sceneManagerObject.GetComponent<SceneTransformDetails>().sceneBoxes;
+            if (scnObj != null)
         {
             GameManager.Instance.savedLocations = new GameManager.SavedBox[scnObj.Length];
             for (int i = 0; i < scnObj.Length; i++)
@@ -50,6 +51,10 @@ public class SendToBattle : MonoBehaviour
                 GameManager.Instance.savedLocations[i].savedZ = scnObj[i].boxZ;
             }
         }
+        }
+        
+        //saves box coordinates
+        
         
         
         //Debug.Log("Colliding with something: " + collision.gameObject.name);

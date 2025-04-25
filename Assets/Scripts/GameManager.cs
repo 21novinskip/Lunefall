@@ -231,6 +231,10 @@ public class GameManager : MonoBehaviour
         {
             StartGraveyardSetup();
         }
+        if (scene.name == "BossRoom")
+        {
+            StartBossSetup();
+        }
         //add as many if statements and functions as there are overworld scenes
     }
 
@@ -300,6 +304,14 @@ public class GameManager : MonoBehaviour
             Instantiate(player3Overworld, p1Position - new Vector3(0,0,0), Quaternion.identity);
         }
         previousSceneOW = null;//set this back to nothing so it doesn't mess things up.
+    }
+    void StartBossSetup()
+    {
+        //this is where we set the "default spawn location" of players in a scene. 
+        Instantiate(player1Overworld, new Vector3(-12, 14, 0), Quaternion.identity);
+        Instantiate(player2Overworld, new Vector3(-13, 14, 0), Quaternion.identity);
+        Instantiate(player3Overworld, new Vector3(-14, 14, 0), Quaternion.identity);
+
     }
 
 
