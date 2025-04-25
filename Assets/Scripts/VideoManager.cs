@@ -29,13 +29,13 @@ public class VideoManager : MonoBehaviour
         }
 
         Debug.Log("Video started!");
-
+        yield return new WaitForSeconds(1);
         while (vp.isPlaying)
         {
             if (img.color.a > 0)
             {
                 Color newColor = img.color;
-                newColor.a -= 0.001f;
+                newColor.a -= 0.01f;
                 img.color = newColor;
             }
             yield return null;
