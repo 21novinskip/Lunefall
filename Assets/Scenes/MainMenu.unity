@@ -2060,6 +2060,34 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 1780761799973689155, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: inventorySlots.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780761799973689155, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: inventorySlots.Array.data[6].gearItemPrefab
+      value: 
+      objectReference: {fileID: 5030935489580413599, guid: b325293f2fea3834db88441bbcca851d, type: 3}
+    - target: {fileID: 1780761799973689155, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: inventorySlots.Array.data[7].gearItemPrefab
+      value: 
+      objectReference: {fileID: 640914897629090062, guid: f0e256d9f3f9dc840bd2d72ee712cdda, type: 3}
+    - target: {fileID: 1780761799973689155, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: inventorySlots.Array.data[8].gearItemPrefab
+      value: 
+      objectReference: {fileID: 3911387784737747871, guid: be994e4388ea5ee4191ee354ee681457, type: 3}
+    - target: {fileID: 1780761799973689155, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: inventorySlots.Array.data[9].gearItemPrefab
+      value: 
+      objectReference: {fileID: 488879738874737230, guid: 5a64d876722f8ee438792ce4c5d45b2c, type: 3}
+    - target: {fileID: 1780761799973689155, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: inventorySlots.Array.data[10].gearItemPrefab
+      value: 
+      objectReference: {fileID: 1644184507261996372, guid: 604d22d79edf4c04a92369bf08ec819a, type: 3}
+    - target: {fileID: 1780761799973689155, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
+      propertyPath: inventorySlots.Array.data[11].gearItemPrefab
+      value: 
+      objectReference: {fileID: 7827166261752822171, guid: b5681d0ae8e6ebb4dac92d3730c09db0, type: 3}
     - target: {fileID: 1858903736142641755, guid: 35304edf952cc1140ae8aa04f0c0f679, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
