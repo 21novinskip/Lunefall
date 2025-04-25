@@ -169,6 +169,11 @@ public GameObject battlefield2;
                 newEnemy[i].name = "Enemy_" + (i);
                 newEnemy[i].tag = "enemy" + (i);
                 if (CombatUpdates) {Debug.Log(enemyUnit[i].unitName + " spawned as " + enemyPrefab[i].name + "!");}
+                if (enemyUnit[i].unitName == "Nighthare" || enemyUnit[i].unitName == "Skull Bunny")
+                {
+                    newEnemy[i].transform.rotation = Quaternion.Euler(0f, 233f, 0f);
+                }
+
             }
         }
     //since all of our setup is done, we can move into the battle.
