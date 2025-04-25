@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldText: {fileID: 348150322}
-  gameManager: {fileID: 1240916087}
+  gameManager: {fileID: 0}
 --- !u!4 &47277848
 Transform:
   m_ObjectHideFlags: 0
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240916087}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: exitShop
         m_Mode: 1
@@ -43451,113 +43451,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 505861163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1240916086
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1240916088}
-  - component: {fileID: 1240916087}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: GameController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1240916087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240916086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bfaee230496f07408d08be1797f225b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pause_screen: {fileID: 1026091812}
-  shop_screen: {fileID: 1847699568}
-  GameState: 0
-  tutorialFinished: 0
-  tutorialJUSTFinished: 0
-  partyLevel: 0
-  currentEXP: 0
-  expToNext: 0
-  karlotBattlePrefab: {fileID: 0}
-  p0HP: 0
-  p0MaxHP: 0
-  p0AP: 0
-  p0STR: 0
-  p0AGI: 0
-  p0LCK: 0
-  p0DEF: 0
-  karlotGear: {fileID: 0}
-  catalinaBattlePrefab: {fileID: 0}
-  p1HP: 0
-  p1MaxHP: 0
-  p1AP: 0
-  p1STR: 0
-  p1AGI: 0
-  p1LCK: 0
-  p1DEF: 0
-  catalinaGear: {fileID: 0}
-  hildegardBattlePrefab: {fileID: 0}
-  p2HP: 0
-  p2MaxHP: 0
-  p2AP: 0
-  p2STR: 0
-  p2AGI: 0
-  p2LCK: 0
-  p2DEF: 0
-  hildegardGear: {fileID: 0}
-  player1Overworld: {fileID: 2206990317928761655, guid: ef95f8db41bba4947b924fd80538e431, type: 3}
-  player2Overworld: {fileID: 5020020155050426222, guid: d159b52fef6d11b4da661d7e07d6fad2, type: 3}
-  player3Overworld: {fileID: 8211595378303193366, guid: 0d5a3fbc9869c36438ac126141ea9bc7, type: 3}
-  p1Position: {x: 0, y: 0, z: 0}
-  player_prefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemy_prefab:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  overworldEnemyID: 
-  overworldEnemyKilled: 0
-  battleMusic: {fileID: 0}
-  titleMusic: {fileID: 0}
-  startVillageMusic: {fileID: 0}
-  forestMusic: {fileID: 0}
-  graveyardMusic: {fileID: 0}
-  tutorialMusic: {fileID: 0}
-  previousScene: 
-  previousSceneOW: 
-  expTally: 0
-  transImg: {fileID: 0}
-  pauseBackground: {fileID: 0}
-  pauseText: {fileID: 0}
-  sceneManagerObject: {fileID: 0}
-  savedLocations: []
---- !u!4 &1240916088
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240916086}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1337330048
 GameObject:
   m_ObjectHideFlags: 0
@@ -64527,7 +64420,6 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1240916088}
   - {fileID: 943631386}
   - {fileID: 47277848}
   - {fileID: 1337330051}
