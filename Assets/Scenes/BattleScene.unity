@@ -14613,11 +14613,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8eed4805eea97849819f69c247dee06, type: 3}
---- !u!1 &1540757567 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a8eed4805eea97849819f69c247dee06, type: 3}
-  m_PrefabInstance: {fileID: 1540757566}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1545393878
 GameObject:
   m_ObjectHideFlags: 0
@@ -16876,7 +16871,7 @@ MonoBehaviour:
   hasHitCalcd: 0
   isHit: 0
   battlefield1: {fileID: 1390789559}
-  battlefield2: {fileID: 1540757567}
+  battlefield2: {fileID: 1955420724}
 --- !u!1 &1852459301
 GameObject:
   m_ObjectHideFlags: 0
@@ -18435,6 +18430,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffccdb0c7cced984c9206df0c93b9e48, type: 3}
+--- !u!1 &1955420724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ffccdb0c7cced984c9206df0c93b9e48, type: 3}
+  m_PrefabInstance: {fileID: 1955420723}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1959234225
 GameObject:
   m_ObjectHideFlags: 0
