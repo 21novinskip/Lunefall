@@ -404,8 +404,8 @@ public GameObject battlefield2;
 
                 
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
-                ActionCam.SetActive(false);
-                MainCam.SetActive(true);
+                //ActionCam.SetActive(false);
+                //MainCam.SetActive(true);
                 DealDamage(6);
 
                 inputGotten = true; // Move this here after the attack is processed.
@@ -439,8 +439,8 @@ public GameObject battlefield2;
                 yield return null; // Waits one frame to ensure the animation state updates
                 
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
-                ActionCam.SetActive(false);
-                MainCam.SetActive(true);
+                //ActionCam.SetActive(false);
+                //MainCam.SetActive(true);
                 DealDamage(4);
 
                 inputGotten = true; // Move this here after the attack is processed.
@@ -475,8 +475,8 @@ public GameObject battlefield2;
                 yield return null; // Waits one frame to ensure the animation state updates
                 
                 if (CombatUpdates) {Debug.Log(activeUnit.unitName + " has " + activeUnit.currentAP + " AP left.");}
-                ActionCam.SetActive(false);
-                MainCam.SetActive(true);
+                //ActionCam.SetActive(false);
+                //MainCam.SetActive(true);
                 DealDamage(2);
 
                 inputGotten = true; // Move this here after the attack is processed.
@@ -847,8 +847,8 @@ public GameObject battlefield2;
 
     private  IEnumerator RunSpecial()
     {
-        MainCam.SetActive(false); //turn off main cam
-        ActionCam.SetActive(true); //turn on action cam
+        //MainCam.SetActive(false); //turn off main cam
+        //ActionCam.SetActive(true); //turn on action cam
         
         string animStateName = ""; // Declare it outside the if-blocks
 
@@ -966,8 +966,8 @@ public GameObject battlefield2;
         float specialAnimLength = activeAnimator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(specialAnimLength);
 
-        ActionCam.SetActive(false);
-        MainCam.SetActive(true);
+        //ActionCam.SetActive(false);
+        //MainCam.SetActive(true);
         special_attack = false;
         currentSpecialAttack = "none";
     }
