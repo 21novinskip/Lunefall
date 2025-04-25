@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
         GameState = GAMESTATES.ROAM;
         //StartCoroutine(scenTr.EnteringTransition());
         //calls specific setup function based on which scene is loaded
-        if (scene.name == "MainMenu" || scene.name == "cutScene" || scene.name == "BattleTutorial")
+        if (scene.name == "MainMenu" || scene.name == "cutScene" || scene.name == "BattleTutorial" || scene.name == "endScene")
         {
             pauseBackground.SetActive(false);
             pauseText.SetActive(false);
@@ -308,9 +308,19 @@ public class GameManager : MonoBehaviour
     void StartBossSetup()
     {
         //this is where we set the "default spawn location" of players in a scene. 
-        Instantiate(player1Overworld, new Vector3(-12, 14, 0), Quaternion.identity);
-        Instantiate(player2Overworld, new Vector3(-13, 14, 0), Quaternion.identity);
-        Instantiate(player3Overworld, new Vector3(-14, 14, 0), Quaternion.identity);
+        if (previousSceneOW == "GraveyardMT")
+        {
+            Instantiate(player1Overworld, new Vector3(-12, 14, 0), Quaternion.identity);
+            Instantiate(player2Overworld, new Vector3(-13, 14, 0), Quaternion.identity);
+            Instantiate(player3Overworld, new Vector3(-14, 14, 0), Quaternion.identity);
+        }
+        
+        else
+        {
+            Instantiate(player1Overworld, p1Position, Quaternion.identity);
+            Instantiate(player2Overworld, p1Position - new Vector3(0,0,0), Quaternion.identity);
+            Instantiate(player3Overworld, p1Position - new Vector3(0,0,0), Quaternion.identity);
+        }
 
     }
 

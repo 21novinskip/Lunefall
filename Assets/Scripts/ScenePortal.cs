@@ -5,7 +5,7 @@ public class ScenePortal : MonoBehaviour
 {
 
     public string WhereTo;
-
+    
     // This function is called when another collider enters this trigger
     private void OnTriggerEnter2D(Collider2D collision)
     {

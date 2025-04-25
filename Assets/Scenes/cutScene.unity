@@ -1164,6 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 1562720329}
+  nextScene: StartVillage
 --- !u!1 &2094008417
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,24 +9,29 @@ public class VideoManager : MonoBehaviour
 {
     private VideoPlayer vp;
     public Image img;
+    public string nextScene;
     void Start()
     {
+        Debug.Log("Starting video");
         vp = gameObject.GetComponent<VideoPlayer>();
-        //vp.Play();
+        vp.Play();
         StartCoroutine(CheckVideoComplete());
     }
     IEnumerator CheckVideoComplete()
     {
-        // Wait until the video starts playing
+        vp.Play();
+        Debug.Log("Trying to play video...");
+
         while (!vp.isPlaying)
         {
+            Debug.Log("Waiting for video to start...");
             yield return null;
         }
-        //now it is playing
-        
+
+        Debug.Log("Video started!");
+
         while (vp.isPlaying)
         {
-            //Kills our overlay screen slowly (fade)
             if (img.color.a > 0)
             {
                 Color newColor = img.color;
@@ -35,16 +40,8 @@ public class VideoManager : MonoBehaviour
             }
             yield return null;
         }
-        
-        //bnow it is done
-        SceneManager.LoadScene("StartVillage");
-    }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            SceneManager.LoadScene("StartVillage");
-        }
+        Debug.Log("Video finished, loading next scene.");
+        SceneManager.LoadScene(nextScene);
     }
 }
