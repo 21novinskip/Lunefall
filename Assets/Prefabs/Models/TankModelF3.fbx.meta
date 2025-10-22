@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ffccdb0c7cced984c9206df0c93b9e48
+guid: 472f434a9e7c8b34687ebce5042ec56e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,28 +7,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Darkness2
-    second: {fileID: 2100000, guid: c040ff9ea31ec79449ae66b7e051a079, type: 2}
+      name: TankFace
+    second: {fileID: 2100000, guid: 32003e0f724573344bcf6edb54c44303, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TreeBark2
-    second: {fileID: 2100000, guid: bc641bf1680d2504787d3061788cd0a1, type: 2}
+      name: TankGlow
+    second: {fileID: 2100000, guid: e4cf71ed50022fb4999fcd230c1c55b2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: TreeLight2
-    second: {fileID: 2100000, guid: d8ab2dc3f29cec44ea6109d38c1a324d, type: 2}
+      name: TankGreen
+    second: {fileID: 2100000, guid: 57ab82cfeda63e84ca9ec2edf03fddf6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: graveground1
-    second: {fileID: 2100000, guid: 8360ca86bebb1ec40bec03138ebdc39c, type: 2}
+      name: TankHair
+    second: {fileID: 2100000, guid: b87c4e740ba8c3843a2c3572dadfc3bf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: graveground2
-    second: {fileID: 2100000, guid: 83bc9fdb84c3e1243a9b8ea35eda21f5, type: 2}
+      name: TankNavy
+    second: {fileID: 2100000, guid: e3ca65cdf4eb5464e929d1aa9309ab95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TankShield
+    second: {fileID: 2100000, guid: b2bd45649f3c4b346a37fe92b357f12d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TankTeal
+    second: {fileID: 2100000, guid: 5a87b58d751005647a54fa6e71b9a91f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: 1c3275b9756c3c7489c158362c9d643b
+guid: cf10e18bfc386a64294e273d4a5f9099
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Darkness2
+    second: {fileID: 2100000, guid: bdbfb71f609c9be46821a766e24207ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TreeBark2
+    second: {fileID: 2100000, guid: ee83832f074f31b43a737639904ed581, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TreeLight2
+    second: {fileID: 2100000, guid: b2be984d0408b1a42894b54d0667f739, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: graveground1
+    second: {fileID: 2100000, guid: d0ec3fba141ff9e40b5d4c972816f69e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: graveground2
+    second: {fileID: 2100000, guid: 249ac3ac2dc03bc45814b46b5b90428d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
