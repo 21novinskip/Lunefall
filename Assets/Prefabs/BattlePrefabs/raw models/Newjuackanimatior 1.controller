@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 83ba57f830cdcde438cda085f3204310, type: 2}
+  m_Motion: {fileID: 7400000, guid: cf3a4f0e02542b24795fcb7f74d94a48, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -98,7 +98,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 49b782f60656d0f4396d7e3ea3bdb199, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7bbeac1e6a1cee047a07ccaae922659b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -110,7 +110,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: juackanimatior
+  m_Name: Newjuackanimatior 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: E_TryLight
